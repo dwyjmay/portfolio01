@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Imagine Dragons</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+       <link rel="shortcut icon" href="images/favicons.png" type="image/x-icon">
+     
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Merriweather+Sans|Bangers&display=swap');
+        *{margin: 0; padding: 0;}
+        body{width: 100%; height: 100%; position: fixed;}
+        ul{list-style: none;}
+        a{text-decoration: none; outline: 0;}
+        
+        /*로고삽입*/
+        .logo{position: fixed; top: 120px; left: 100px; z-index: 1; transition: all 0.3s;}
+        .logo img{width: 200px; height: auto;}
+        .logo:hover {transform: rotate(-3deg); opacity: 0.9;}
+        
+        /*배경 동영상*/
+        .vid{width: 100%; height: 100%; position: fixed; top: -60px; left: 0;}
+        .vid video{width: 100%; min-width: 1600px;}
+        .back {width: 700px; height: 100%; position: fixed; top: 0; left: -420px; transform: skewX(-35deg);background:#225350; }
+        /*sns버튼*/
+        .icon{position: fixed; top: 4%; left: 3%;}
+        .icon li{float: left; margin-right: 30px;}
+        .icon li i{font-size: 30pt; opacity: 0.5; color: #fff; transform: scale(0.8); transition: all 0.3s;}
+        .icon i:hover{opacity: 1; transform: scale(1); }
+        
+        /*1depth menu*/
+        .nav {width: 230px;  position: absolute; top: 250px; right: 0px; font-family:"Gugi", cursive;}
+        .nav>li {position: relative;}
+        .nav>li>a{display: block; width: 230px; height:50px;font:bold 16px/3 play; color: #fff; box-sizing: border-box; text-align: right; padding-right: 20px;font-family: 'Righteous', cursive;}
+        .nav>li.on>a{background: #265f5b; }
+        .nav>li:hover>a{background:#265f5b; }
+        .nav em{display: inline-block; transform: skewX(45deg);}
+        
+        /*2depth menu*/
+        .nav ul{position: absolute;  top: 0; left: 0; opacity: 0; transition: all 0.4s;}
+        .nav>li:hover ul{opacity:0.8; left: 230px;}
+        .nav ul a{display: block; width: 200px; height: 50px;  background: #265f5b; color: #fff; font-family: 'Merriweather Sans', sans-serif; font-weight: bold; letter-spacing: 3px; line-height: 50px; text-align: center; box-sizing: border-box;}
+        .nav ul a:hover {background: #d7b995; color: #225350;}
+        .on li:nth-child(1) a:hover{background:url(images/member2.jpg); background-position:-40px -40px; color: transparent;} 
+         .on li:nth-child(2) a:hover{background:url(images/new.jpg); background-position:0px -150px; color: transparent;} 
+        
+        .on li:nth-child(3) a:hover{background:url(images/new.jpg); background-position:-200px -150px; color: transparent;}
+        .on li:nth-child(4) a:hover{background:url(images/new.jpg); background-position:-350px -140px; color: transparent;}
+        .on li:nth-child(5) a:hover{background:url(images/new.jpg); background-position:-535px -185px; color: transparent;}
+        .txtbox{width: 600px; height: 280px;position: absolute; top: 50px; right: 70px;}
+        .txt{position: absolute;top: 100px;right: 0px;font-size: 34px;font-family: 'Bangers', cursive;}
+        .title{position: absolute; top: 0; right: 0;color: #265f5b; font-family: 'Bangers', cursive; font-size: 30px;}
+        .title em{font-size: 70px;font-family: 'Bangers', cursive; color:#fff;}
+        .txt b{font:bold 34px 'Bangers'; color:  #265f5b; }
+        
+        
+        /*우측하단*/
+        .bottom{width: 800px; height: 100%; position: fixed; bottom: 0; right: -800px;  background: #ccc; opacity: 0.7; transform: skewX(-30deg); transition: all 0.5s;}
+        .bottom:hover {right: -500px; opacity: 0.8;}
+        .bottom .con{width: 400px; height: 100%; position: absolute; left: 150px; bottom: 0; background: #255350; box-sizing: border-box; padding: 10px; transition: all 1s;}
+        .bottom:hover .con{left: 50px;}
+        
+        /*하단 썸넹리 3개*/
+        .bottom .con p{width: 300px; height: 100px;  position: absolute;left: 50px;}
+        .bottom .con em{display: inline-block; font:
+        bold 16px/1.7 arial; color:#d7b995; transform: scaleX(30deg);}
+        .bottom img{width: 300px; height: 100px; opacity: 0.3; transition: all 0.5s;}
+        .bottom .con p img:hover{opacity: 1;}        
+        .bottom .con p:nth-child(1){bottom: 320px; transform: translateX(0px); transition: all 0.4s;}
+        .bottom .con p:nth-child(2){bottom: 180px; transform: translateX(0px); transition: all 0.8s; }
+        .bottom .con p:nth-child(2) em{line-height: 20px;}
+        .bottom .con p:nth-child(3){bottom: 30px; transform: translateX(0px); transition: all 1.2s;}
+        .bottom:hover .con p{transform: translateX(0);}
+        
+        /*손가락*/
+        .bottom .left{width: 150px; height: 50px; position: absolute; bottom: 40px; left: 100px; color: #ff7c98; transform: skewX(30deg);}
+        .bottom:hover .left{left: 700px;}
+        .left .dragon{width: 100px; height: 100px;  background-image: url(images/dragon2.png); background-size: cover; position: absolute; left: -80px; top: -30px; }
+        .left .imag{position: absolute; bottom: 0;right: 0; opacity: 0; width: 50px; height: 50px; background-image: url(images/fireball.png); background-size:contain; background-repeat: no-repeat;}
+        .left .imag {color: white;}
+        .left .imag:nth-child(1){animation: ani linear 1.5s 0s infinite;}
+        .left .imag:nth-child(2){animation: ani linear 1.5s 0.5s infinite;}
+        .left .imag:nth-child(3){animation: ani linear 1.5s 1.0s infinite;}
+        
+        @keyframes ani{
+            0% {left: -20px;  top: -10px; transform: scale(0.5); opacity: 1;}
+            100%{left: 100px; top: -10px; transform: scale(1.5); opacity: 0;}
+        }
+    </style>
+</head>
+<body>
+ <figure class="vid">
+        <video loop="loop" controls autoplay muted>
+            <source src="video/evolve.mp4" type="video/mp4">
+        </video>
+    </figure>
+  
+    <div class="logo"><img src="images/6531816.png"></div>
+    <div class="back">
+        <ul class="nav">
+           <!--1번-->
+            <li class="on"><a href="#"><em>About</em></a>
+                <ul>
+                    <li><a href="#">Imagine Dragons</a></li>
+                    <li><a href="#">Dan Reynolds</a></li>
+                    <li><a href="#">Wayne Sermon</a></li>
+                    <li><a href="#">Daniel Platzman</a></li>
+                    <li><a href="#">Ben Mckee</a></li>
+                </ul>
+            </li>
+            
+            <!--2번-->
+            <li>
+                <a href="#"><em>NEWS</em></a>
+            </li>
+            <!--3번-->
+            <li>
+                <a href="#"><em>Tour</em></a>
+                <ul>
+                    <li><a href="#">Schedule</a></li>
+                    <li><a href="#">Tickets</a></li>
+                    <li><a href="#">ETC</a></li>
+                </ul>
+            </li>
+            
+            <!--4번-->
+            <li>
+                <a href="#"><em>Videos</em></a>
+                <ul>
+                    <li><a href="#">Official</a></li>
+                    <li><a href="#">LIVE</a></li>
+                </ul>
+            </li>
+            <!--5번-->
+            <li>
+                <a href="#"><em>STORE</em></a>
+                <ul>
+                    <li><a href="#">Apparel</a></li>
+                    <li><a href="#">Music</a></li>
+                    <li><a href="#">Accessories</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    
+    <ul class="icon">
+       <li><a href="#"><i class="fab fa-facebook"></i></a></li>      
+       <li><a href="#"><i class="fab fa-twitter"></i></a></li>      
+       <li><a href="#"><i class="fab fa-instagram"></i></a></li>      
+       <li><a href="#"><i class="fab fa-youtube"></i></a></li>      
+       <li><a href="#"><i class="fas fa-envelope"></i></a></li>      
+   </ul>
+   
+   <!--우측상단부-->
+   <div class="txtbox">
+           <p class="title">the NEW EP <em>[Believer]</em></p>
+
+              <p class="txt"><b>is released</b></p>
+   </div>
+   
+   <!--우측하단부-->
+   <div class="bottom">
+       <div class="con">
+           <p> <em>Origins (Deluxe) </em>
+           <a href="#"><img src="images/preorder.jpg"></a>
+           </p>
+           
+           <p> <em>20/01/16 5Noteworthy Moves on This Week's Billboard 200 </em>
+           <a href="#"><img src="images/team.jpg"></a>
+           </p>
+           <p> <em>Watch The 'Zero'Video</em>
+           <a href="#"><img src="images/zero.jpg"></a>
+           </p>
+       </div>
+       <div class="left">
+         <div class="dragon"></div>
+            <div class="imag"></div>
+            <div class="imag"></div>
+            <div class="imag"></div>
+            
+          
+       </div>
+
+   </div>
+</body>
+</html>

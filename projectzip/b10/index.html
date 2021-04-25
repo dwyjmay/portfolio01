@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
+    <link href="css/jquery.bxslider.css" rel="stylesheet">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
+  />
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/jquery.bxslider.js"></script>
+    <style>
+   /*     html,body{width: 100%; height: 100%; overflow-x: hidden;}*/
+        *{padding: 0;margin: 0;}
+        a{text-decoration: none;color: #242424;}
+        li{list-style: none;}
+        header{width: 100%; height: 650px; background:url(images/hd_visual.png) no-repeat;  background-attachment: fixed;background-position: center 0%;}
+        header a{width:500px;height: 650px; display: block; position: absolute; background-image:url(images/n_logo2.png); background-attachment: fixed;left: 50%;transform: translateX(-50%); background-repeat: no-repeat;background-size:auto;}
+    
+        nav{width: 100%; height: 80px;position: relative;left: 0;top: 0;z-index: 3;background-color: white;}
+        nav.active{position: fixed;left: 0;top: 0;}
+        nav .navi{width: 700px; height: 100%; margin: 0 auto;text-align: center;position: relative; }
+        .navi>li{float: left;width:16.6%;height: 100%;}
+        .navi>li>a{display: block; width: 100%; height: 100%; text-align: center;line-height: 60px; color: #242424; font-size: 1vw;font-family: 'Roboto Condensed', sans-serif; font-weight: bold;}
+        .navi>li:hover>a{color: #ff3baf;}
+        nav ul{z-index: 4;}
+        nav .navi_right{position: absolute;right: 0; top: 0; width: 260px;}
+        .navi_right li{float: left;width: 20%; height: 100%;}
+        .navi_right li a{font-size: 9px; display: block; width: 100%;height: 100%; line-height: 60px;text-align: center;}
+        .topnow{display: block;position: fixed; left: 0;top: 0; width: 50px; height: 50px;z-index: 99999;}
+        .sec_logo{position: absolute; left: 50px; display: none; top: 50%; transform: translateY(-50%);}
+        .sub{width: 700px; height: 320px;position: absolute;left: 0;display: none;z-index: 999;}
+        .sub ul{width: 33.3%;height: 100%;float: left;}
+        .sub ul li{height:30px;width: 100%;}
+        .sub ul li a{display: block;height: 100%;width: 100%; text-align: center;font-family: 'Roboto Condensed', sans-serif; line-height: 30px;transition: 0.5s all;}
+        .sub ul li:hover a, .sub p:hover{font-weight: bold;}
+        .sub p{ width: 33.3%; height: 100%;float: left;font-family: 'Roboto Condensed', sans-serif;transition: 0.5s all; text-align: center; text-decoration: underline;}
+        .navi li .sub span{position: absolute; left: 33.3%; top: 0; display: block; width: 33.3%;}
+        .navi li:nth-child(2) p,.navi li:nth-child(3) p{position: absolute; right: 0;}
+        .navi li:nth-child(4) p{width: 66.0%;}
+        .navi li:nth-child(5) p{width: 33%;}
+        .navi li:nth-child(6) p{width: 33%;}
+        .ul_cover{position: absolute; width: 100%; height: 350px; background-color: rgba(255,255,255,0.95);display:none;left: 0;z-index: 2;}
+        .ul_cover.active{position: fixed; left: 0; top: 80px; }
+        .section1{width: 100%; height: 515px;}
+        .s1_right{width:50%; height: 100%;float: left;box-sizing: border-box; background: url(images/8_0.png) center center;}
+        .s1_left{width: 50%; height: 100%; float: left;}  
+        .s1_right div{width: 400px; height: 100px; padding-top: 20px;}
+        .s1_right p{ color: white; font-family: 'Roboto Condensed', sans-serif; width: 80%; height: 50%;}
+        .s1_right p:nth-child(1){font-size: 30pt;margin-left: 20%;}
+        .s1_right p:nth-child(2){font-size: 20pt;margin-left: 20%;}
+        .section2{width: 100%; height: 759px; background-color: #f7f1f0;position: relative;}
+        section .s2_mainText{width: 100%; text-align: center; height: 200px; position: relative;}
+        .s2_mainText p{ height: 50px; position: absolute; top: 20%; left: 50%; transform: translateX(-50%);font-family: 'Roboto Condensed', sans-serif; font-size: 30px;}
+        .s2_mainText span{position: absolute;bottom: 0; left: 50%; transform: translateX(-50%); color: #666;width: 500px;}
+        .bestMenu{width: 1200px; margin: 0 auto; position: relative;}
+        .bestMenu  li{width: 25%; float: left;}
+        .bestMenu li .itemTitle{text-align: center;margin-bottom: 20px;}
+        .bestMenu li .itemText{text-align: center;color: #666; font-size: 10pt;}
+        
+        .bestMenu li img:hover{transform: scale(1.1);}
+        .bestMenu li img{transition: 3s all;}
+        .section2 .fix_image1{position: absolute;right: -50px; top: -10px;z-index: 999;}
+        .fix_image1.active{position: fixed; right: -50px; top: 10%;}
+        .section3{background-color: #f9f9f9;width: 100%; height: 650px;}
+        .section3 .s3_box{width: 1000px; height: 100%; margin:  80px auto; }
+        .s3_box div{width: 33.3%; float: left;position: relative;}
+        .s3_box div a{position: relative;}
+        .s3_box div:nth-child(odd) a:nth-child(1), .s3_box div:nth-child(even) a:nth-child(2){display: block; width: 95%; height: 430px; margin-bottom: 15px;}
+        .s3_box div:nth-child(odd) a:nth-child(2),  .s3_box div:nth-child(even) a:nth-child(1){display: block; width: 95%; height: 200px; margin-bottom: 15px;}
+        .s3_image1 a:nth-child(1){background: url(images/14_0.jpg);}
+        .s3_image1 a:nth-child(2){background: url(images/14_1.jpg);}
+        .s3_image2 a:nth-child(1){background: url(images/14_1.jpg);}
+        .s3_image2 a:nth-child(2){background: url(images/14_4.jpg);}
+        .s3_image3 a:nth-child(1){background: url(images/14_2.jpg);}
+        .s3_image3 a:nth-child(2){background: url(images/14_1.jpg);}
+        .s3_box a:before{display: block;content: "View Now";  color: #fff; position: absolute; width: 100%; height: 100%; background: rgba(0,0,0,0.8); transition: 0.5s all;opacity: 0;box-sizing: border-box;text-align: center;text-decoration: underline;}
+         .s3_box div:nth-child(odd) a:nth-child(1):before, .s3_box div:nth-child(even) a:nth-child(2):before{line-height: 480px;}
+         .s3_box div:nth-child(odd) a:nth-child(2):before,  .s3_box div:nth-child(even) a:nth-child(1):before{line-height: 200px;}
+        .s3_box a:hover:before{ opacity: 1;}
+        
+        .section4{width: 100%; height: 300px;position: relative; }
+        .section4 .s2_mainText p:nth-child(1){position: absolute;}
+        .section4 .s2_mainText p:nth-child(2){position: absolute; top: 150px; font-size: 20px;}
+        .section4 .s2_mainText span{width: 750px;text-align: center; bottom: -50px; position: absolute;}
+        .pr_bg{width: 100%; height: 500px; background-image: url(images/31_0.jpg); background-attachment: fixed;}
+        .fix_image2{position: relative; left: -50px; top: 0;z-index: 50;}
+        .fix_image2.active{position: fixed; left: -50px; top: 10%;}
+        .section5{width: 100%; height: 1000px;position: relative;}
+        .section5 .s5_wrap{width: 1200px; height: 100%; margin: 0 auto;text-align: center;}
+        .s5_img{margin-top: 50px;width: 40%; display: inline-block; height:30%; margin-right: 25px;margin-bottom: 80px;}
+        .s5_img a{display: block; width: 100%; height: 100%;}
+        .s5_img:nth-child(1) a{background: url(images/15_0.png);}
+        .s5_img:nth-child(2) a{background: url(images/15_1.png);}
+        .s5_img:nth-child(3) a{background: url(images/15_2.png);}
+        .s5_img:nth-child(4) a{background: url(images/15_3.png);}
+        .section5 .s5_text1{padding: 10px 0;}
+        .section5 .s5_text2{padding: 10px 0; font-size: 10pt; color: #666;}
+        .s6_wrap{width: 1000px; height:980px; margin: 30px auto; }
+        .section6 a{display: inline-block;}
+        .s6_wrap div{width: 50%; height: 50%; float: left;}
+        .s6_wrap div a{margin: 5px;}
+        #img5{float: left;}
+        #img6{float: left; }
+        .section6 {position:relative;width: 100%; height: 1250px;}
+         .fix_image3{position: absolute; right: -50px; top: 0;z-index: 50;}
+         .fix_image3.active{position: fixed; right: -50px; top: 80px;z-index: 50;}
+        .mamuri{width: 100%;height: 150px; text-align: center; position: relative; }
+        .mamuri p{height: 50%; font-size: 20px;}
+        .mamuri p:nth-child(2){font-size: 16px; color: #666;}
+        footer{width: 100%; height: 500px; background-image: url(images/hd_visual.png);position: relative;}
+        
+        footer .foot{width: 100%; color: white;background-color: rgba(0,0,0,0.8); height: 100%; position: absolute;top: 0;}
+        .foot>div{width: 1000px; height: 100%; margin:0 auto;position: relative;} 
+        .foot>div img{position: absolute; left: 0;
+        top: 100px;}
+        .foot>div>p{position: absolute; left:0;top: 200px;}
+        .foot .sns li a i{color: white; font-size: 40px;}
+        .foot .sns{width: 200px; height: 40px; position: absolute; top: 320px;}
+        .sns li {display: inline-block; width: 30%;}
+        .foot2{width: 600px; position: absolute; right: 0; top: 200px; color: white; font-weight: bold;}
+        .foot2 ul{float: left; height: 200px;width: 200px;;}
+        .foot2 ul li a{color: white; font-weight: normal;}
+        .foot2 ul li{width: 100%; height: 25%;}
+           @media only screen and (max-width: 1700px) {
+               .foot2 {top: 400px; width: 100%; height: 50px;position: absolute;}
+               .foot2 ul{width: 50%; height: 50px;}
+               .foot2 ul:nth-child(1){border-right: 3px solid #666; box-sizing: border-box; height: 50px;}
+               .foot2 ul li{display: inline-block; width: 22%; font-size: 0.8vw; text-align: center;line-height: 50px;}
+}
+                   @media only screen and (max-width: 1000px) {
+                       .fix_image1,.fix_image2,.fix_image3{opacity: 0;}
+}
+        #search{position: absolute;right: 0; background: white;height: 0; overflow: hidden;top: 45px;}   
+        
+        
+    </style>
+    <style>
+        .wrap{overflow-x: hidden;} 
+#wrap{
+  position:relative;
+color:#000;
+font-size:16px;
+  left:0; top:0;
+  width:150%;
+ 
+  height:300px;
+  display:flex;
+  align-items:stretch;
+    margin-top: 400px;
+ 
+}
+.hb {
+  position:relative;
+  flex: 2;
+  z-index:1;
+  /*display:flex;*/
+  align-items:center;
+}
+.c{
+  position:relative;
+  display:block;
+  max-width:90%;
+}
+.c img {
+  position:relative;
+  display:block;
+  width:100%;
+  height:auto;
+  z-index:2;
+}
+.txt {
+  position:absolute;
+  top:100%; left:10%;
+  width:80%;
+  opacity:0;
+  padding:1em 0 0 1em;
+  border-left:1px solid;
+  z-index:1;
+  transform:scaleY(1) translateY(-50px);
+  transition:transform .2s, opacity .5s;
+}
+h1 {
+  font-size:1.2em;
+  font-weight:700;
+  text-transform:uppercase;
+}
+.hb:hover .txt {
+  opacity:1;
+  transform:scaleY(1) translateY(0);
+}
+.fullBg {
+/*  position:fixed;top:0;left:0;width:100%;height:100%;
+  opacity:0;
+  transition:transform .5s, opacity .5s;
+  transform:scale(1);
+  z-index:1;*/
+    display: none;
+}
+.fullBg img {
+  width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  opacity:.5;
+}
+.hb:hover + .fullBg {opacity:1;transform:scale(1.02);}
+    
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#"></a>
+ <!--       <span class="topnow">0</span>-->
+    </header>
+ 
+    <nav>
+       <img src="images/mememi.png" class="sec_logo">
+        <ul class="navi">
+            <li><a href="#">MeMeMi</a>
+            <div class="sub">
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Location</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+            <p>About MeMeMi<img src="images/19_0.png"></p>
+            <p>in MILANO<img src="images/19_1.png"></p>
+            </div>
+            </li>
+            <li><a href="#">Kitchen</a>
+            <div class="sub">
+            <ul>
+                <li><a href="#">Salad</a></li>    
+                <li><a href="#">Brunch Plate</a></li>    
+                <li><a href="#">Pasta</a></li>    
+                <li><a href="#">Rice</a></li>    
+                <li><a href="#">Steak</a></li>    
+                <li><a href="#">Pizza</a></li>  
+                <li><a href="#">Side</a></li>   
+                <span> 
+                <li><a href="#">Bread & Cookie</a></li>    
+                <li><a href="#">Cake</a></li>    
+                <li><a href="#">+Season Menu</a></li> 
+                   </span>   
+            </ul>
+            <p>New Menu<img src="images/35_0.png"></p>
+            </div>
+            </li>
+            <li><a href="#">Caffe</a>
+            <div class="sub">
+            <ul>
+                <li><a href="#">+Season Menu</a></li>    
+                <li><a href="#">Espresso</a></li>    
+                <li><a href="#">Tea</a></li>    
+                <li><a href="#">Tea Latte</a></li>    
+                <li><a href="#">Others</a></li>    
+                <li><a href="#">Ade</a></li>    
+                <span>
+                <li><a href="#">Fresh Juice</a></li>    
+                <li><a href="#">Smoothie</a></li>    
+                <li><a href="#">Granita</a></li>    
+                <li><a href="#">Ice Cream</a></li>    
+                <li><a href="#">Dessert</a></li>    
+                <li><a href="#">Food</a></li>    
+                </span>
+            </ul>
+            <p>New Menu<img src="images/20_0.png"></p>
+            </div>
+            </li>
+            <li><a href="#">Lifestyle</a>
+            <div class="sub">
+            <ul>
+                <li><a href="#">Polspotten</a></li>    
+                <li><a href="#">Qeeboo</a></li>    
+            </ul>
+            <p>Polspoten<img src="images/25_0.png"></p>
+            </div>
+            </li>
+            <li><a href="#">Trend</a>
+            <div class="sub">
+             <p>Food<img src="images/26_0.png"></p>
+             <p>Lifestyle<img src="images/26_1.png"></p>
+             <p>Culture<img src="images/26_2.png"></p>
+            </div>
+            </li>
+            <li><a href="#">Collective Shop</a>
+            <div class="sub">
+                <ul>
+                    <li><a href="#">All</a></li>
+                    <li><a href="#">Table</a></li>
+                    <li><a href="#">Chair</a></li>
+                    <li><a href="#">Stool</a></li>
+                    <li><a href="#">Objet</a></li>
+                    <li><a href="#">Lightning</a></li>
+                    <li><a href="#">Product</a></li>
+                    <li><a href="#">Lighting</a></li>
+                    <li><a href="#">Product</a></li>
+                    <li><a href="#">Meal Kit</a></li>
+                </ul>
+                <p>Table<img src="images/29_0.png"></p>
+                <p>Stool<img src="images/29_1.jpg"></p>
+            </div>
+            </li>
+        </ul>
+        <ul class="navi_right">
+            <li><a href="#">Login</a></li>
+            <li><a href="#">Join</a></li>
+            <li><a href="#">My Page</a></li>
+            <li><a href="#">Delivery</a></li>
+            <li><a href="#">Search</a></li>
+            <span id="search"><input type="search" name="keyword"></span>
+        </ul>
+        
+    </nav>
+    <span class="ul_cover"></span>
+    <section class="section1">
+        <div class="s1_left">
+        <section class="slider">
+        <div><img src="images/12_0.png"></div>
+        <div><img src="images/12_1.png"></div>
+        <div><img src="images/12_2.png"></div>
+    </section>
+        </div>
+        <div class="s1_right"><div><p>Delicious Moment</p><p>Kitchen MeMeMi Season Menu</p></div></div>
+    </section>
+    <section class="section2">
+        <div class="s2_mainText"><p>Best Menu</p><span>미미미의 시그니처 푸드!<br>가장 많은 사랑을 받은 베스트셀링 메뉴는 ?</span></div>
+        <img src="images/31_2.png" class="fix_image1">
+        <ul class="bestMenu">
+            <li><a href="#"><img src="images/13_0.png"><p class="itemTitle">링 마이 베리<br>(RING MY BERRY)</p><p class="itemText">새콤달콤한 리얼 딸기가 가득!<br>딸기의 달콤함과 신선한 우유의<br>부드러움을 동시에 즐길 수 있는<br>링 마이 베리</p></a></li>
+            <li><a href="#"><img src="images/13_1.png"><p class="itemTitle">러블리 부띠끄<br>(LOVELY BOUTIQUE)</p><p class="itemText">최적의 당도를 가진<br>딸기를 그대로 갈아 만든<br>미미미표 리얼 딸기 주스!<br>러블리 부띠끄</p></a></li>
+            <li><a href="#"><img src="images/13_2.png"><p class="itemTitle">채끝 등심 스테이크<br>(STRIPLOIN STEAK)</p><p class="itemText">호주산 청정우 채끝 등심을<br>겉은 바삭하게, 속은 촉촉하게<br>구워 육즙을 가득 담은<br>채끝 등심 스테이크</p></a></li>
+            <li><a href="#"><img src="images/13_3.png"><p class="itemTitle">트러플 불고기 피자<br>(TRUFFLE BULGGOGI PIZZA)</p><p class="itemText">불고기와 다양한 버섯,<br>모짜렐라 치즈까지!<br>풍부한 트러플 향이 가미된<br>트러플 불고기 피자</p></a></li>
+        </ul>
+    </section>
+    <section class="section3">
+        <div class="s2_mainText"><p>Collective Lifestyle Shop</p><span>카페를 넘어 문화와 라이프스타일이 공존하는 콜렉트 카페 미미미<br>미미미가 제안하는 감각적인 아이템들을 만나보세요.</span></div>
+        <div class="s3_box">
+        <div class="s3_image1">
+        <a href="#"></a>
+        <a href="#"></a>
+        </div>
+        <div class="s3_image2">
+        <a href="#"></a>
+        <a href="#"></a>
+        </div>
+        <div class="s3_image3">
+        <a href="#"></a>
+        <a href="#"></a>
+        </div>
+        </div>
+    </section>
+     <div id="wrap">
+  <a href="#" class="hb">
+    <div class="c">
+      <img src="images/32_0.png" alt=""/>
+    </div>
+  </a>
+  <div class="fullBg">
+    <img src="images/32_0.png" alt=""/>
+  </div>
+    <a href="#" class="hb">
+    <div class="c">
+      <img src="images/32_1.png" alt=""/>
+    </div>
+  </a>
+  <div class="fullBg">
+    <img src="images/32_1.png" alt=""/>
+  </div>
+    <a href="#" class="hb">
+    <div class="c">
+      <img src="images/32_2.png" alt=""/>
+    </div>
+  </a>
+  <div class="fullBg">
+    <img src="images/32_2.png" alt=""/>
+  </div>
+    <a href="#" class="hb">
+    <div class="c">
+      <img src="images/32_3.png" alt=""/>
+    </div>
+  </a>
+  <div class="fullBg">
+    <img src="images/32_3.png" alt=""/>
+  </div>
+    <a href="#" class="hb">
+    <div class="c">
+      <img src="images/32_4.png" alt=""/>
+    </div>
+  </a>
+  <div class="fullBg">
+    <img src="images/32_4.png" alt=""/>
+  </div>
+    <a href="#" class="hb">
+    <div class="c">
+      <img src="images/32_5.png" alt=""/>
+    </div>
+  </a>
+  <div class="fullBg">
+    <img src="images/32_5.png" alt=""/>
+  </div>
+           <a href="#" class="hb">
+    <div class="c">
+      <img src="images/32_6.png" alt=""/>
+    </div>
+  </a>
+  <div class="fullBg">
+    <img src="images/32_6.png" alt=""/>
+  </div>
+    <a href="#" class="hb">
+    <div class="c">
+      <img src="images/32_7.png" alt=""/>
+    </div>
+  </a>
+  <div class="fullBg">
+    <img src="images/32_7.png" alt=""/>
+  </div>
+    <a href="#" class="hb">
+    <div class="c">
+      <img src="images/32_8.png" alt=""/>
+    </div>
+  </a>
+  <div class="fullBg">
+    <img src="images/32_8.png" alt=""/>
+  </div>
+    <a href="#" class="hb">
+    <div class="c">
+      <img src="images/32_9.png" alt=""/>
+    </div>
+  </a>
+  <div class="fullBg">
+    <img src="images/32_9.png" alt=""/>
+  </div>
+    <a href="#" class="hb">
+    <div class="c">
+      <img src="images/32_10.png" alt=""/>
+    </div>
+  </a>
+  <div class="fullBg">
+    <img src="images/32_10.png" alt=""/>
+  </div>
+    <a href="#" class="hb">
+    <div class="c">
+      <img src="images/32_11.png" alt=""/>
+  
+    </div>
+  </a>
+  <div class="fullBg">
+    <img src="images/32_11.png" alt=""/>
+  </div>
+    <a href="#" class="hb">
+    <div class="c">
+      <img src="images/32_12.png" alt=""/>
+  
+    </div>
+  </a>
+  <div class="fullBg">
+    <img src="images/32_12.png" alt=""/>
+  </div>
+   <a href="#" class="hb">
+    <div class="c">
+      <img src="images/32_0.png" alt=""/>
+   
+    </div>
+  </a>
+  <div class="fullBg">
+    <img src="images/32_0.png" alt=""/>
+  </div>
+</div>   
+    <section class="section4">
+       <div class="s2_mainText"><p>COLLECT CAFFE MeMeMi</p><p>FROM MILANO</p><span>카페 미미미는 이탈리아 밀라노 비아 브레라 23에서 탄생한 글로벌 콜렉트 카페입니다.<br>미미미는 카페라는 틀에서 벗어나 패션과 라이프스타일을 접목한 새로운 공간을 선보이고 있습니다.</span></div>  
+    </section>
+    <div class="pr_bg"> <img src="images/31_1.png" class="fix_image2"></div>
+   <section class="section5">
+      <div class="s5_wrap">
+       <div class="s5_img"><a href="#"></a><p class="s5_text1">카페미미미 용사낭이파크몰점</p><p class="s5_text2">서울 용산구 한강대로23길 55<br>아이파크몰 패션관 4층</p></div>
+       <div class="s5_img"><a href="#"></a><p class="s5_text1">카페미미미 롯데아울렛 광주수완점</p><p class="s5_text2">광주 광산구 장신로 98<br>롯데아울렛 B관 1층</p></div>
+       <div class="s5_img"><a href="#"></a><p class="s5_text1">카페미미미 현대시티아울렛 가산점</p><p class="s5_text2">서울특별시 금천구 디지털로 10길 9,<br>현대시티아울렛 가산점 2층</p></div>
+       <div class="s5_img"><a href="#"></a><p class="s5_text1">카페미미미 이탈리아 밀라노점</p><p class="s5_text2">VIA VRERA 23 20121 MILANO<br>ITALY</p></div>
+       
+       </div>
+   </section>
+   <section class="section6">
+      <img src="images/31_3.png" class="fix_image3">
+       <div class="s2_mainText"><p>Kitchen MeMeMi TREND</p><span>키친 미미미만의 유니크한 스토리<br>지금 확인해보세요!</span></div>
+       <div class="s6_wrap">
+       <div>
+       <a href="#" id="img1"><img src="images/16_0.png"></a>
+       <a href="#" id="img2"><img src="images/16_1.png"></a>
+       <a href="#" id="img3"><img src="images/16_2.png"></a>
+       <a href="#" id="img4"><img src="images/16_3.png"></a>
+       </div>
+       <a href="#" id="img5"><img src="images/16_4.png"></a>
+       <a href="#" id="img6"><img src="images/16_5.png"></a>
+       <div>
+       <a href="#" id="img7"><img src="images/16_6.png"></a>
+       <a href="#" id="img8"><img src="images/16_7.png"></a>
+       <a href="#" id="img9"><img src="images/16_8.png"></a>
+       <a href="#" id="img10"><img src="images/16_9.png"></a>
+       </div>
+       </div>
+   </section>
+<div class="mamuri">
+    <p>Stay connected!<br>Follow us on instagram</p>
+    <p>@mememi.official</p>
+</div>
+   <footer>
+       <div class="foot">
+          <div>
+           <a href="#"><img src="images/neon_logo2.png"></a>
+           <p>(주)미미미 대표이사:양지해, Add : 서울 강남구 도산대로 318 SB타워 9층, Tel : 02-410-0080<br>
+E-mail : jhlee1@metrocity.co.kr, 사업자등록번호 : 519-87-00640, 통신판매업신고 : 2017-서울강남-0327<br>
+개인정보관리책임자 : 이재학</p>
+      <ul class="sns">
+          <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+          <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+          <li><a href="#"><i class="fab fa-vimeo-square"></i></a></li>
+      </ul>
+       </div>
+       </div>
+       <div class="foot2">
+           <ul>
+               <li>Help</li>
+               <li><a href="#">개인정보취급방침</a></li>
+               <li><a href="#">이용약관</a></li>
+               <li><a href="#">고객센터</a></li>
+           </ul>
+           <ul>
+               <li>Mememi</li>
+               <li><a href="#">회사소개</a></li>
+               <li><a href="#">매장소개</a></li>
+               <li><a href="#">Contact Us</a></li>
+           </ul>
+       </div>
+   </footer>
+    
+    
+
+        <script>
+    $().ready(function(){
+        //n_logo2.png를 항상 가운데 정렬되게 하는 함수
+        function myFun(){
+            var wid=$(window).width()/2;   
+            $("header a").css({backgroundPosition:wid+"px 81.25px"});
+            
+        }
+        myFun();
+        $(window).resize(function(){
+            myFun();
+        });
+        var fix1=$(".fix_image1").offset().top;
+        var fix2=$(".fix_image2").offset().top-200;
+        var fix3=$(".fix_image3").offset().top-200;
+      console.log("fix3 : "+fix3);
+        $(window).scroll(function(){
+            
+            var height=$("html,body").scrollTop();
+            $(".topnow").text(height);
+           if(height>=650){
+               $("nav").addClass("active");
+               $(".sec_logo").fadeIn();
+               $(".ul_cover").addClass("active");
+           }
+            else{
+                 $("nav").removeClass("active");
+                $(".sec_logo").fadeOut();
+                $(".ul_cover").removeClass("active");
+            }
+              /*fixed image*/
+       
+            
+            if(height>=fix1&&height<fix2){
+                $(".fix_image1").addClass("active");
+                $(".fix_image2").removeClass("active");
+                $(".fix_image3").removeClass("active");
+            }
+            else if(height>=fix2&&height<fix3){
+                $(".fix_image1").removeClass("active");
+                $(".fix_image2").addClass("active");
+                $(".fix_image3").removeClass("active");
+            }
+            else if(height>=fix3) {
+                console.log(fix3);
+                $(".fix_image1").removeClass("active");
+                $(".fix_image2").removeClass("active");
+                $(".fix_image3").addClass("active");
+            }
+            else{
+                 $(".fix_image1").removeClass("active");
+                $(".fix_image2").removeClass("active");
+                $(".fix_image3").removeClass("active");
+            }
+      
+            
+        });
+        
+        var state=false;
+        /*search funciton*/
+        $(".navi_right li").eq(4).click(function(e){
+            e.preventDefault();
+            
+            if(state==false){
+            $("#search").animate({height:"30px"},500);
+                state=!state;
+            }
+            else{
+                $("#search").animate({height:"0px"},500);
+                state=!state;    
+            }
+            
+        });
+        /*main nav item hover 시 해당 서브메뉴 슬라이드*/
+        $(".navi>li").hover(function(){
+            $(this).find(".sub").stop().slideDown();
+        },function(){
+            $(this).find(".sub").hide();
+        });
+        $("nav .navi").hover(function(){
+            $(".ul_cover").stop().slideDown();
+        },function(){
+            $(".ul_cover").stop().slideUp();
+        });
+      
+        
+    });
+    </script>
+    <!--bxslider-->
+    <script>
+     $(document).ready(function(){
+                      $('.slider').bxSlider({
+                        mode:'horizontal',      //vertical : 가로로 펼칠지 세로로 펼칠지//
+                        moveSlides:1,           //슬라이드 이동시 개수
+                        //슬라이드 사이 여백
+                        infiniteLoop:true,      // true:반복하겠다 , false : 반복 x
+                        slideWidth:1600,         //슬라이드의 너비 
+                        slideHeight:500,        //슬라이드의 높이
+                        minSlides:1,            //슬라이드 최소 노출 개수 min과 max는 숫자가 같아야 한다.
+                        maxSlides:1,            //슬라이드 최대 노출 개수
+                        speed:900,              //슬라이드 전환 속도
+                        controls:true,          //좌우로 갈 수 있는 버튼이 나옴 , false는 안 나옴.
+                        auto:true,              //자동실행여부
+                        pager:true,             // 동그라미 버튼 (개수 나타나는 부분) 노출 할건가 안할건가
+                        autoHover:false,        //호버 시 애니메이션 정지 여부
+                          
+                      });
+       });
+    </script>
+     <script>
+    $(document).ready(function(){
+  var docWidth = $('body').width(),
+      $wrap = $('#wrap'),
+      $images = $('#wrap .hb'),
+      slidesWidth = $wrap.width();
+  
+  $(window).on('resize', function(){
+    docWidth = $('body').width();
+    slidesWidth = $wrap.width();
+  })
+  
+        $("#wrap").mouseenter(function(){
+            $(document).mousemove(function(e) {
+    var mouseX = e.pageX,
+        offset = mouseX / docWidth * slidesWidth - mouseX;
+    
+    $images.css({
+      '-webkit-transform': 'translate3d(' + -offset + 'px,0,0)',
+              'transform': 'translate3d(' + -offset + 'px,0,0)'
+    });
+  });
+        });
+        $("#wrap").mouseleave(function(){
+          $(document).mousemove(function(e) {
+    var mouseX = e.pageX,
+        offset = mouseX / docWidth * slidesWidth - mouseX / 2;
+    
+    $images.css({
+      '-webkit-transform': 'translate3d(' + 0 + 'px,0,0)',
+              'transform': 'translate3d(' + 0 + 'px,0,0)'
+    });
+  });  
+            
+        });
+        
+        
+ 
+
+})
+    </script>
+</body>
+</html>

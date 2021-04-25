@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Volkswagen</title>
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" rel="stylesheet">
+     <script src="js/jquery-1.7.2.min.js"></script>
+     <script src="js/prefixfree.min.js"></script>
+     <script src="js/jquery.easing.1.3.js"></script>
+     <script src="js/index.js"></script>
+     <link rel="shortcut icon" href="images/favicons.png" type="image/x-icon">
+     <style>
+         @import url('https://fonts.googleapis.com/css?family=Baloo+Chettan+2|PT+Serif&display=swap');
+         *{margin: 0; }
+         ul li{list-style: none;}
+         a{outline: 0; text-decoration: none; color:#555;}
+         img{border: 0;}
+         body{width: 100%; min-width: 1400px; height: 23000px; font-size: 12px; letter-spacing: 2px;}
+         .bg{position: fixed;width: 100%; height: 100%;top: 0; left: 0; background:url(images/bg1.jpg) no-repeat center top; background-size: cover;}
+         h1{position: fixed; top: -20px; left: -20px ;z-index: 2;}
+         h1 img{width: 240px;}
+         
+         .gnb{position: fixed; top: 50px; right: 180px; z-index: 2;}
+         .gnb li{float: left; margin-left: 50px;}
+         .gnb li a{font-size: 14px; font-weight: bold; transition: all 0.5s;}
+         .gnb li a:hover{color: #fff;  border-bottom:2px solid rgba(0,0,0,0.2);}
+         
+         .sns{position: fixed; top: 30px; right: 10px; z-index: 2;}
+         .sns li{float: left; margin-left: 10px; width: 35px; height: 35px; border-radius: 50%; background:rgba(255,255,255,0.2); box-sizing: border-box; transition: 0.5s all;}
+         .sns li i{color: rgba(218,146,96,0.5); font-size: 15pt; display: block; width: 100%; height: 100%; text-align: center; line-height: 35px;}
+         .sns li:hover{ border:1px solid white;}
+         .sns li:hover i{color: white; }
+         
+         .scrollNavi{position: fixed; left: 0; top: 300px; z-index: 2;}
+         .scrollNavi li{position: relative; width: 150px; height: 35px; margin-bottom: 20px; font-size: 12px; color: #fff; text-align: center; cursor: pointer; perspective: 400px;}
+         .scrollNavi li:last-child{width: 180px;}
+         .scrollNavi li:nth-child(3){width: 140px;}
+         .scrollNavi em{position: absolute;top: 8px;left: 20px; font-size: 20px;font-weight: bold; text-shadow: 1px 1px 1px #000;}
+         .scrollNavi span{display: block; width: 3%; height: 100%; position: absolute; transform: skewX(-30deg);  box-shadow: 1px 1px 1px #000;}
+         .scrollNavi li.on span{width: 100%;}
+         .scrollNavi li:nth-child(1) span{background: #999;}
+         .scrollNavi li:nth-child(2) span{background: #025EAB;}
+         .scrollNavi li:nth-child(3) span{background: #D0A333;}
+         .scrollNavi li:nth-child(4) span{background: #C90000;}
+         .scrollNavi li:nth-child(5) span{background: #0f1217;}
+         
+         .copyright{position: fixed;bottom: 20px; right: 30px; font-family: 'arial'; font-size: 15px;color: rgba(255,255,255,0.5);}
+         .copyright .copy{position: relative;left: 5px;}
+         
+         section{width: 1200px; height: 700px; position: fixed;left: 50%; margin-left:-600px; top: 50%;margin-top: -350px; perspective: 2300px; z-index: 1;}
+         section>article{width: 1200px; height: 700px; position: absolute;top: 0;left: 0;opacity: 0.01;z-index: 8;}
+         section article.on{opacity: 1;z-index: 9;}
+         section>article:nth-child(1){transform: translateZ(0px);}
+         section>article:nth-child(2){transform: translateZ(-3000px);}
+         section>article:nth-child(3){transform: translateZ(-6000px);}
+         section>article:nth-child(4){transform: translateZ(-9000px);}
+         section>article:nth-child(5){transform: translateZ(-12000px);}
+         section>article>p{position:absolute;width: 800px;padding: 30px 60px; color:#fff; opacity: 1;background:rgba(255,255,255,0.2);}
+         section>article>p>span{font-size: 60px;letter-spacing: 0; line-height: 1.5;font-family: 'PT Serif', serif;}
+         section>article>img{position: absolute;}
+         section>article:nth-child(1) p{top:0px;left: 120px;font-family: 'PT Serif', serif;}
+         section>article:nth-child(1) span{color:#C04B01; display: block;}
+         
+         .obj11{bottom: -80px; left: -270px; opacity: 1; transform: scale(1);}
+         .obj13{bottom: -90px; left: -30px; transform: scale(0.45);-webkit-filter: drop-shadow(0px 0px 50px rgba(201,0,0,0.6));}
+  
+         section>article:nth-child(2) p{top: 0px;left: 130px; background:rgba(0,0,0,0.8);}
+         section>article:nth-child(2) span{color:#BDDAF0;display: block;}
+         
+         .obj21{bottom: -80px; left: -270px; border: 2px solid red;}
+         .obj23{bottom: -350px; left: -275px; transform: scale(0.45);-webkit-filter: drop-shadow(0px 0px 50px rgba(208,163,51,0.3));}
+         
+         section>article:nth-child(3) p{top:0px;left: 120px;background:rgba(255,255,255,0.1)}
+         section>article:nth-child(3) span{color:#d4a430;display: block;}
+         .obj31{bottom: -80px; left: -270px; border: 2px solid red;}
+         .obj33{bottom: -40px; left: 40px; transform: scale(0.7);-webkit-filter: drop-shadow(0px 0px 50px rgba(242,164,5,0.5));}
+         
+         section>article:nth-child(4) p{top:0px;left: 120px;background:rgba(0,0,0,0.6);}
+         section>article:nth-child(4) span{color:#c90000;display: block; font-size: 50px; line-height: 180px;}
+         .obj41{bottom: -80px; left: -270px; border: 2px solid red;}
+         .obj43{bottom: -200px; left: 0px;transform: scale(0.8);-webkit-filter: drop-shadow(0px 0px 50px rgba(2,82,171,0.5)); }
+         
+         section>article:nth-child(5) p{top:0px;left: 120px;background:rgba(0,0,0,0.6);}
+         section>article:nth-child(5) span{color:#fff;display: block;}
+         .obj51{bottom: -80px; left: -270px; border: 2px solid red;}
+         .obj53{bottom: -150px; left: 90px; transform: scale(0.8);-webkit-filter: drop-shadow(0px 0px 50px rgba(255,255,255,1));}
+
+         
+    </style>
+</head>
+<body>
+    <div class="bg"></div>
+    <h1><img src="images/logo.png"></h1>
+    <ul class="gnb">
+        <li><a href="#">EXTERIOR</a></li>
+        <li><a href="#">INTERIOR</a></li>
+        <li><a href="#">DRIVING</a></li>
+        <li><a href="#">TECHNOLOGY</a></li>
+        <li><a href="#">GALLERY</a></li>
+        <li><a href="#">TRIM</a></li>
+        <li><a href="#">PROMOTION</a></li>
+        <li><a href="#">TEST DRIVING</a></li>
+    </ul>
+    <ul class="sns">
+        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+    </ul>
+    <ul class="scrollNavi">
+        <li class="on"><span></span><em>TOUAREG</em></li>
+        <li><span></span><em>AMAROK</em></li>
+        <li><span></span><em>ARTEON</em></li>
+        <li><span></span><em>GOLF_GTI</em></li>
+        <li><span></span><em>ARTEON_BK</em></li>
+    </ul>
+    
+    <section>
+       <article  class="on">
+     <!--       <img class="obj31" src="images/asphalt.jpg">-->
+            <img class="obj33 shadowfilter" src="images/touareg4.png">
+            <p class="on">
+                <span>A NEW kind of leader. <br>The new Touareg</span>
+                <!--"투아렉은 새로운 리더의 기준을 제시합니다. 미래를 앞서 보고, 앞서 가는 비전. 넓은 시야로 세상을 바라보는 비전. 남과 다른 자신만의 확고한 비전. 위대한 비전. 이것이 리더의 조건."-->
+                "The Touareg. See the world from a fresh perspective.
+                The Toureg's off-road capability will help find a way, even when there appears to be none. The 4MOTION wheel drive system distributes engine power, as required traction and propulsion on virtually all types of ground."
+            </p>
+        </article>
+             <article>
+         <!-- <img class="obj31" src="images/smoke.png">-->
+            <img class="obj43" src="images/amarokrs.png">
+            <p class="on">
+                <span>100% pickup . 100% premium.<br>The Amarok .</span>
+                "The Amarok is eye-catching from any angle, with its wide
+stance and rugged appearance combined with powerful
+engines, strong chassis and superb interior styling. The
+chiselled contours and styling highlights exude quality and
+style, beautifully complemented by the striking rear design,
+making it as much at home for the family as it is at work."
+            </p>
+        </article>
+       
+         
+        
+         <article>
+          <!--  <img class="obj31" src="images/smoke.png">-->
+            <img class="obj23" src="images/arteon3.png">
+            <p class="on">
+                <span>A NEW ERA OF VOLKSWAGEN DESIGN, ARTEON</span>
+                The roofline slopes downward and merges seamlessly with the back, conveying style and performance.
+                The standard and available features on the Arteon help explain why it's justifiably called a premium sedan. Within the plush and spacious interior is a long list of things that delight both driver and passenger.
+<!--                "폭스바겐이 완전히 새롭게 개발하여 세상에 공개한 4도어 패스트백 아테온은 혁신적인 디자인과 뛰어난 실용성으로 출시 전부터 기대와 인기를 한몸에 받은 모델입니다. 유려한 바디라인과 낮게 깔린듯한 에어로다이내믹 실루엣으로 어떤 각도에서든  시선을 사로잡습니다. 전면부를 감싼 듯한 보닛 디자인과 프레임리스 도어는 품격과 우아함을 발산하며, 클래식한 패스트백 살룬 스타일을 반영한 후면부 디자인과 아름다운 조화를 이룹니다. 특히, 도어의 프레임리스 윈도우는 그랜드 투어러의 전형적인 스타일 요소를 담아냈으며, 뒷유리와 함께 위로 크게 열리는 테일게이트가 적용되어 여유로운 적재공간을 보다 손쉽게 이용할 수 있어 편리합니다."-->
+            </p>
+          
+        </article>
+         <article>
+          <!-- <img class="obj31" src="images/smoke.png">-->
+            <img class="obj13" src="images/GOLF_GTI1.png">
+            <p class="on">
+                <span>OFTEN COPIED , NEVER EQUALED.</span>
+                A legendary look that's always in style.
+                With available LEDs front and back and sports bumpers, the best way to describe the Golf GTI is jusy really, really cool.
+                The Golg-GTI is designed to provide confidence as well as convenience with Front Assist and App-Connect 
+               <!-- "GTI는 1976년 데뷔 이후 40년 가까이 전세계 수많은 모터스포츠 마니아를 열광시키며 전설적인 핫해치의 왕좌로 군림해왔습니다. 7세대 GTI는 완벽에 완벽을 더한 경이로운 진화로 거듭나며 GTI만의 강렬한 캐릭터와 탁월한 가속력, 더욱 민첩해진 핸들링으로 재탄생했습니다. GTI특유의 전면부 허니콤 그릴과 매력적인 사이드 스커트, 그리고 시선을 사로잡는 GTI로고는 세월이 흘러도 변하지 않는 GTI만의 특별한 가치를 투영합니다."-->
+            </p>
+         
+        </article>
+         <article>
+          <!-- <img class="obj31" src="images/smoke.png">-->
+            <img class="obj53" src="images/arteon2.png">
+            <p class="on">
+                <span>OFTEN COPIED,<br> NEVER EQUALED.</span>
+                The roofline slopes downward and merges seamlessly with the back, conveying style and performance.
+                The standard and available features on the Arteon help explain why it's justifiably called a premium sedan. Within the plush and spacious interior is a long list of things that delight both driver and passenger.
+                <!--"GTI는 1976년 데뷔 이후 40년 가까이 전세계 수많은 모터스포츠 마니아를 열광시키며 전설적인 핫해치의 왕좌로 군림해왔습니다. 7세대 GTI는 완벽에 완벽을 더한 경이로운 진화로 거듭나며 GTI만의 강렬한 캐릭터와 탁월한 가속력, 더욱 민첩해진 핸들링으로 재탄생했습니다. GTI특유의 전면부 허니콤 그릴과 매력적인 사이드 스커트, 그리고 시선을 사로잡는 GTI로고는 세월이 흘러도 변하지 않는 GTI만의 특별한 가치를 투영합니다."-->
+            </p>
+         
+        </article>
+        
+         
+   
+    </section>
+    
+    
+    <span class="copyright"><span class="copy">&copy;Volkswagen 2020. All rights reserved </span>
+        
+        
+    </span>
+</body>
+</html>

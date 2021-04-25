@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EDIYA COFFEE</title>
+    <link href="css/jquery.bxslider.css" rel="stylesheet">
+    <link rel="shortcut icon" href="images/favicons.png" type="image/x-icon">
+        
+    <!-- jquery library -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    
+    <!--bxslider JavaScript file-->
+    <script src="js/jquery.bxslider.js"></script>
+     <script>
+        $(document).ready(function(){
+                      $('.bxTop').bxSlider({
+                        mode:'horizontal',      //vertical : 가로로 펼칠지 세로로 펼칠지//
+                        moveSlides:1,           //슬라이드 이동시 개수
+                        //슬라이드 사이 여백
+                        infiniteLoop:true,      // true:반복하겠다 , false : 반복 x
+                        slideWidth:1920,         //슬라이드의 너비 
+                        slideHeight:500,        //슬라이드의 높이
+                        minSlides:1,            //슬라이드 최소 노출 개수 min과 max는 숫자가 같아야 한다.
+                        maxSlides:1,            //슬라이드 최대 노출 개수
+                        speed:500,              //슬라이드 전환 속도
+                        controls:true,          //좌우로 갈 수 있는 버튼이 나옴 , false는 안 나옴.
+                        auto:true,              //자동실행여부
+                        pager:true,             // 동그라미 버튼 (개수 나타나는 부분) 노출 할건가 안할건가
+                        autoHover:false,        //호버 시 애니메이션 정지 여부
+                        
+                      });
+       });
+    </script>
+    <script>
+    $().ready(function(){
+$("html,body").animate({scrollTop:0},0);
+    });
+    </script>
+    <style>
+  
+        *{padding: 0; margin: 0;}
+        body, html{width: 100%; height: 100%;}
+        .wrap{width: 100%; height:4450px;  /* background-color: aliceblue;*/}
+        
+        header{width:1200px; height: 50px; margin: 0 auto; position: relative;}
+        /*header 왼쪽부분*/
+        .header_1{ width: 220px; height: 50px; list-style: none; position: absolute;}
+        .header_1>li{float: left; width: 110px; height: 50px; text-align: center; line-height: 50px; }
+        .header_1>li>a{text-decoration: none;}
+        .header_1>li:nth-child(1)>a{color: #233c84; font-size: 10pt;}
+        .header_1>li:nth-child(2)>a{color: #b6b6b6; font-size: 10pt;}
+        
+        
+        /*header오른쪽부분*/
+        .header_r{width: 450px; height: 50px; position: absolute; right: 0; }
+        .header_r>select{ width: 120px; height: 25px; position: absolute; top: 15px; right: 0;}
+        .header_r>.header_2{list-style: none; width: 400px; height:50px;}
+        .header_2>li{float: left; width: 80px; height:50px;}
+        .header_2>li>a{display: block; width: 80px; height:50px; text-decoration: none; color: #aaaaaa; font-size: 10pt; font-weight: bold; text-align: center; line-height: 50px;  font-size: 9pt}
+        .header_2>li:hover>a{color: #666666;}
+        .header_2>li:nth-child(1)>::before{position: absolute; height: 15px; width: 1px; background-color: #aaaaaa; content: "";  left: 80px;top: 20px; }
+        .header_2>li:nth-child(2)>::before{position: absolute; height: 15px; width: 1px; background-color: #aaaaaa; content: "";  left: 160px;top: 20px;}
+        
+        .header_2>li:nth-child(4),.header_2>li:nth-child(5),.header_2>li:nth-child(6){height: 18px; width: 18px; position: relative;}
+        .header_2>li:nth-child(4)>a{background: url(images/top_sns01.gif);height: 18px; width: 18px; position: relative; top: 16px; background-size: cover; }
+        .header_2>li:nth-child(5)>a{background: url(images/top_sns02.gif);height: 18px; width: 18px; position: relative; top: 16px; left: 5px;background-size: cover;}
+        .header_2>li:nth-child(6)>a{background: url(images/top_sns03.gif);height: 18px; width: 18px; position: relative; top: 16px;left: 10px;background-size: cover;}
+        
+        /*navigation*/
+        .nav{ height:  50px; width: 1000px;  margin: 0 auto; position: relative; background-color: white;}
+        .nav>#top_logo{display:inline-block; height: 20px; width: 202px;position: absolute;top: 15px;z-index: 300000;  }
+        .nav>#top_logo>a{ display: block; height: 20px; width: 202px; background: url(images/top_logo.gif); background-size: cover; }
+        .nav>.navibar{width: 1920px; height: 50px;position: absolute;left: -450px; list-style: none; overflow: hidden; transition: 0.2s height; padding-left: 700px; background-color: white;}
+        .navibar>li{ float: left; width: 160px; height: 50px;   }
+        .navibar>li>a{ display: block; height: 160px; height: 50px; text-decoration: none; text-align: left; line-height: 50px; font-size: 10pt; color: #7b7b7d; }
+        
+        
+        /*submenu*/
+        .smenu{ list-style: none; height:200px; box-sizing: border-box; overflow: hidden;   width: 1920px; position: relative; }
+        .smenu>li{ box-sizing: border-box; width: 160px; height: 30px; }
+        .smenu>li>a{font-weight: bold; color: #7b7b7d; font-size: 8pt; text-decoration: none;}
+        .smenu>li:hover>a{color:#333; }
+        
+        .navibar:hover{ height: 250px;border-bottom: 2px solid #555; }
+        /*navibar호버 시 파란 줄 나오는 부분*/
+        .navibar>li:nth-child(1)::before{height: 4px; width: 0px; background-color: #233c84; content: ""; position: absolute;top: 40px; left: 710px; transition: 0.2s all;}
+        .navibar>li:nth-child(1):hover::before{width: 25px; left: 700px; transform: scale(1.2);}
+        .navibar>li:nth-child(2)::before{height: 4px; width: 0px; background-color: #233c84; content: ""; position: absolute;top: 40px; left: 890px; transition: 0.2s all;}
+        .navibar>li:nth-child(2):hover::before{width: 68px; left: 867px; transform: scale(1.2);}
+        .navibar>li:nth-child(3)::before{height: 4px; width: 0px; background-color: #233c84; content: ""; position: absolute;top: 40px; left: 1050px; transition: 0.2s all;}
+        .navibar>li:nth-child(3):hover::before{width: 68px; left: 1027px; transform: scale(1.2);}
+        .navibar>li:nth-child(4)::before{height: 4px; width: 0px; background-color: #233c84; content: ""; position: absolute;top: 40px; left: 1210px; transition: 0.2s all;}
+        .navibar>li:nth-child(4):hover::before{width: 68px; left: 1185px; transform: scale(1.2);}
+        .navibar>li:nth-child(5)::before{height: 4px; width: 0px; background-color: #233c84; content: ""; position: absolute;top: 40px; left: 1360px; transition: 0.2s all;}
+        .navibar>li:nth-child(5):hover::before{width: 50px; left: 1340px; transform: scale(1.2);}
+        /*navigation 고정*/
+        .fixed{height: 50px; width: 1200px; position: absolute; left: 0px; right: 0;  margin: 0 auto; z-index: 100000;}   /* fixed속성 가운데 정렬 하는 방법*/
+     
+        .why{width: 1920px; height: 580px; box-sizing: border-box;margin: 50px auto; position: relative;}
+        .fixed_left{background: url(images/main_event_bn_.png);  width: 197px; height: 278px; background-size: cover; position: fixed; top: 200px; left: 100px; z-index: 9999; transition: 0.5s all;}
+        .fixed_left:hover{transform: rotate(-1deg)  ;}
+        .fixed_right{width: 105px; height: 420px;  position: fixed; right:100px; top: 200px; z-index: 9999;}
+        .fixed_right>a{ width: 105px; height: 105px; display: block; margin-bottom: 10px;}
+        .fixed_right>a:nth-child(1){background: url(images/main_quick01.png);}
+        .fixed_right>a:nth-child(2){background: url(images/main_quick02.png);}
+        .fixed_right>a:nth-child(3){background: url(images/main_quick03.png);}
+         .fixed_right>a:nth-child(4){background: url(images/main_quick04_19.png);}
+        
+        .block1{width: 100%; height: 250px; background-position: -100px 0; background-image: url(images/main_block01_bg.gif);background-size: cover;}
+        .blue_center{height: 250px; width: 1200px; margin: 0 auto;}
+            .beanist {background: url(images/main_block01_tt.gif);width: 192px; height: 40px; position: relative; top: 50px; }
+        .blue_center span:nth-of-type(1){ color: white;  position: relative;top:
+            60px; font-size: 20pt;}
+        .blue_center span:nth-of-type(2){ display: block;  height: 70px; width: 300px; color: white; font-size: 15px; position: relative;margin: 0 auto; font-weight: bold; line-height: 25px;}
+        .blue_center a{ color: white; text-decoration: none; margin: 0 450px;  display: block; width: 150px; font-weight: bold; font-family: '굴림';}
+        
+        .block2{background: url(images/block02_bg.jpg);width: 100%; height: 800px; background-size: cover; position: relative;
+        }
+        
+        .block2>.block2_text{ width: 750px; margin: 0 auto; position: relative; }
+        .block2>.block2_text h2{color: #3c3c3c;
+    font-weight: 100; 
+    font-family: 'Nunito Sans', sans-serif; font-size: 42px; margin: 0px auto; padding-top: 100px;}
+        .block2_text h2>em{color: #243c86; font-weight: bold; }
+        .block2_text h3{width: 590px;  margin: 80px auto; height: 30px;color: #3c3c3c;font-size: 25px; font-weight: 100;}
+        .block2_text::before{content: ""; position: absolute; width: 100px; height: 1px; background-color: #3c3c3c; top: 200px; left: 45%;}
+       
+        .block2_text a{color: #243c86; font-weight: bold; text-decoration: none; display: block; margin: 0 auto; width: 130px; height: 40px; border:1px solid  #3c3c3c !important; border-radius: 5px; text-align: center;line-height: 40px; transition: 0.5s all;}
+        .block2_text a:hover{ background-color: #243c86; color: white;border: 0;}
+        .block3{width: 100%; height:960px ; background-image: url(images/block03_bg.jpg);position:relative;/* position: fixed; */}
+        .block3::before{background-image: url(images/block03_line.png);width: 100%; height: 178px; position: absolute; content: ""; top: 480px;}
+        .block3_center{color: white; width: 800px; height: 570px; margin: 0 auto; padding-top: 130px; position: relative;}
+        .block3_center h2{font-size: 38px; font-weight: 100; width: 450px; height: 50px; margin: 0 auto; text-align: center;}
+        
+        .block3_center h3{ width: 420px; margin:  20px auto; font-weight: 200;}
+        .block3_center a{width: 105px; height: 140px;  font-size: 10pt;text-align: center;background-repeat: no-repeat;position: absolute;transition: 0.5s all;display: block;color: white;text-decoration: none;vertical-align: bottom;}
+        .block3_center>.lineImg1{display: block;background-image: url(images/block03_icon01.png);bottom: 0;}
+        .block3_center>.lineImg2{background-image: url(images/block03_icon02.png);bottom: 70px;left:50%; transform:translateX(-50%);}
+        .block3_center>.lineImg3{background-image: url(images/block03_icon03.png);bottom: 0; right: 0;}
+       .lineImg1:hover,.lineImg3:hover{animation-name: movetop;
+        animation-duration: 1s;
+            animation-iteration-count: infinite;
+        }
+       .lineImg2:hover{animation-name: movetop2;
+        animation-duration: 1s;
+            animation-iteration-count: infinite;border:
+        }
+     
+        @keyframes movetop{
+            0%{transform: translatey(0px);}
+            50%{transform:translateY(-10px);}
+            100%{transform: translatey(0px);}
+        }
+          @keyframes movetop2{
+            0%{transform: translateX(-50%) translatey(0px);}
+              
+            50%{transform:translateX(-50%) translateY(-10px);}
+            100%{transform:translateX(-50%) translatey(0px);}
+        }
+        .block4{width: 100%;height: 980px; background-color: white;}
+        .block4_center{width: 1200px; height: 980px;  margin: 0 auto;position: relative; }
+        .block4_center>h2{color: #3c3c3d;font-weight: 100; width: 350px; margin: 30px auto; font-size: 24pt;text-align: center;}
+        .block4_center>h2>b{font-weight: bold;}
+        .block4_center>h3{color: #3c3c3d; font-size: 13pt; text-align: center; height: 70px;position: relative;}
+        .block4_center>h3:after{position: absolute; content: ""; width: 100px; height: 1px; background: #3c3c3d; bottom: 0;left: 50%;transform: translateX(-50%);}
+        .block4_center>div,.block4_center>div>a{display: block;width: 630px; height:640px;}
+        .block4_center>div{position:absolute; bottom: 80px;overflow: hidden; }
+        .block4_center>div:nth-of-type(2){right: 0; bottom: 0px;}
+        .block4_center>div:nth-of-type(1){z-index: 1;}
+        .block4_center a{color: black; text-decoration: none;}
+        .bigImage1{transition: 0.5s all;}
+        .bigImage2{transition: 0.5s all;}
+        .block4_center>div:hover>a>img{transform:scale(1.1);}
+        .top{z-index: 20;  width: 200px;height: 40px;line-height: 30px;color: white; font-weight: bold; font-family: 'arial'; text-align: center; display: block;position: absolute;bottom: 120px; left: 50%; transform: translateX(-50%);letter-spacing: 5px;position: relative;}
+        .top:before{content: ""; position: absolute; height: 7px; width: 100px; background-color: white; left: 50%; transform: translateX(-50%);bottom: 0;}
+        .block4_center>div:hover .top:before{ animation-name: qq;
+        animation-duration: 0.5s; }
+        @keyframes qq{
+            0%{ width: 0px; }
+        }
+        .block5{width: 1200px;height: 400px;margin: 80px auto 0;position: relative;}
+        .box1{height: 380px; width: 380px;position: absolute; }
+        .box1>a{display: block;background-image: url(images/main_franchise_bg.jpg);height: 380px; width: 380px; background-size: cover; color: white; text-decoration: none;position: relative;}
+        .box1 a>span:nth-child(1){font-size: 20pt; display: block; width: 250px; height: 70pt; line-height: 70pt;text-align: right;}
+         .box1 a>span:nth-child(2){font-size: 13pt; display: block; width: 220px; height: 70pt;  line-height: 80pt;text-align: right;}
+         .box1 a::before{content: ""; position: absolute; height: 2px; width: 80px; background-color: white; top: 120px;left: 50px;}
+        .box2>a{display: block;background-image: url(images/main_store_bg.jpg);height: 380px; width: 380px; background-size: cover; color: white; text-decoration: none;}
+        .box2 a>span:nth-child(1){font-size: 20pt; display: block; width: 150px; height: 70pt; line-height: 80pt;text-align: right;}
+        .box2 a>span:nth-child(2){font-size: 13pt; display: block; width: 180px; height: 70pt; text-align: left; padding:40px 0 0 42px;}
+         .box2 a::before{content: ""; position: absolute; height: 2px; width: 80px; background-color: white; top: 120px;left: 50px;}
+        .box2{height: 380px; width: 380px;position:absolute; left: 400px;}
+        input{position: absolute; background-color: #1c3269;border: 2px solid white; top: 230px; left: 40px;}
+        ::placeholder{color: white;}
+        #search{display: block; width: 44px; height: 44px; position: absolute; top: 230px; left: 260px;background: transparent; }
+        .box3{height: 380px;width: 380px; position: absolute;left: 800px;}
+        .box3>h1{ font-size: 18pt;height: 90px;line-height: 60px;display: inline-block; width: 200px;}
+        .box3>a{color: #333; text-decoration: none;display: block;height: 20px; margin-bottom: 10px;}
+        .box3>a:nth-child(5){margin-bottom: 50px;}
+        .more{display: inline-block;width: 150px; text-align: right;}
+        .more>a{color: #333; text-decoration: none;  }
+        .brochure{width: 100%; height: 150px!important;  background-color:#cbc3b2; position: relative;display: block;}
+        .brochure>span{color: white; text-decoration: none; font-size: 18pt; letter-spacing: -2px; font-family: '굴림' ;font-weight: bold; display: block; height: 30px;padding-top: 20px;}
+        .brochure:before{content: ""; position: absolute; font-size: 40pt; color: white; top: 80px;left: 20px;background-image: url(images/main_brochure_arrow.png);width: 30px; height: 20px;}
+        .brochure:after{content: ""; position: absolute; background-image: url(images/main_brochure_img.png); top: 0; width: 175px; height:/**/ 165px;right: 0;top: -50px;}
+        .block6{width: 1200px; height: 200px; margin: 0 auto;padding-top: 50px;} 
+        .block6>h1{color: #3c3c3d; width: 300px; height: 60px; margin: 0 auto; font-family: 'Nunito Sans', sans-serif;}
+        .block6>h2{color: #3c3c3d; width: 280px; height: 50px; margin: 0 auto;position: relative;font-weight: 100; font-size: 16pt;line-height: 50px;}
+        .block6>h2::before{content: ""; position: absolute; width: 60px; height: 2px; background: #666; left: 50%; transform: translateX(-50%);}
+        
+        footer{width: 100%; height: 300px;position: relative ;background-color: #262626;}  
+        footer:before{content:""; width: 100%; height: 1px; background-color: #3d3d3d;  position: absolute; top: 70px ;   }
+        .f_ul{list-style: none; margin: 0 auto; width: 1200px; height: 70px; position: relative ; }
+        .f_ul>li{float: left;  width: 150px; height: 70px; text-align: center; line-height: 70px;  }
+        .f_ul>li>a{color: #7b7b7b; text-decoration: none; }
+        .f_ul>li:nth-child(1)>a{color: white;  text-decoration: none; }
+        .bottom_logo{background-image: url(images/bottom_logo.gif);height: 20px; width: 210px;  margin: 30px auto;  }
+        .f_text{margin: 0 auto; color: #666; width: 840px; text-align: center;}
+        .ccm{background-image:url(images/footer_ccm.png);width: 250px; height: 66px; background-size: cover;position: absolute; top: 90px; left: 1500px;}
+        
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <ul class="header_1">
+                <li><a href="#">Brand Site</a></li>
+                <li><a href="#">Corporate Site</a></li>
+            </ul>
+            
+            <div class="header_r">
+          <ul class="header_2">
+                <li><a href="#">로그인</a></li>
+                <li><a href="#">회원가입</a></li>
+                <li><a href="#">매장찾기</a></li>
+                <li><a href="#" class="sns"></a></li>
+                <li><a href="#" class="sns"></a></li>
+                <li><a href="#" class="sns"></a></li>
+           
+            </ul>
+            
+            <select class="header_s" name="language" size="1">
+               <option selected>Korean</option>
+               <option>Chinese</option>
+               <option>English</option>
+            </select>
+            </div>
+           
+        </header>
+        
+    
+        <div class="fixed">
+        <div class="nav">
+           <span id="top_logo"><a href="#"></a></span>
+            <ul class="navibar">
+                <li><a href="#">메뉴</a>
+                    <ul class="smenu">
+                        <li><a href="#">음료</a></li>
+                        <li><a href="#">베이커리</a></li>
+                        <li><a href="#">MD</a></li>
+                        <li><a href="#">비니스트</a></li>
+                        <li><a href="#">원두</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">이디야멤버스</a>
+                    <ul class="smenu">
+                        <li><a href="#">멤버스 소개</a></li>
+                        <li><a href="#">이디야카드</a></li>
+                        <li><a href="#">선물하기</a></li>
+                        <li><a href="#">이디야오더</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">이디야커피랩</a>
+                    <ul class="smenu">
+                        <li><a href="#">이디야커피랩</a></li>
+                        <li><a href="#">이디야커피랩 메뉴</a></li>
+                    </ul>
+                
+                </li>
+                <li><a href="#">이디야컬쳐랩</a>
+                    <ul class="smenu">
+                        <li><a href="#">뮤직페스타</a></li>
+                        <li><a href="#">프로그램 및 시설 안내</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">공지사항</a>
+                    <ul class="smenu">
+                        <li><a href="#">이디야 소식</a></li>
+                        <li><a href="#">이벤트</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        </div>
+        <div class="why">
+        <div class="bxTop">
+            <img src="images/br1.jpg">
+            <img src="images/br2.jpg">
+            <img src="images/br3.jpg">
+            <img src="images/br4.jpg">
+            <img src="images/br5.jpg">
+            <img src="images/br6.jpg">
+            <img src="images/br7.jpg">
+            <img src="images/br8.jpg">
+            <img src="images/br9.jpg">
+            <img src="images/br10.jpg">
+            <img src="images/br11.jpg">
+            <img src="images/br12.jpg">
+            <img src="images/br13.jpg">
+            <img src="images/br14.jpg">
+        </div>
+        </div>
+        <div class="fixed_left"></div>
+        <div class="fixed_right">
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+        </div>
+        <div class="block1">
+           <div class="blue_center">
+            <div class="beanist"></div>
+            <span>YOUR COFFEE FLAVOR</span>
+            <span>완성된 원두에서 추출한 최상의 맛과 향을 '언제 어디서나' 간편하게 즐기다.</span>
+            <a href="#">제품 자세히보기 ></a>
+            </div>
+        </div>
+        <div class="block2">
+            <div class="block2_text">
+                <h2> ALWAYS BESIDE YOU, <em>EDIYA COFFEE</em></h2>
+                <h3>늘 당신 곁에, 이디야커피의 다양한 메뉴를 맛보세요.</h3>
+                <a href="#">메뉴보기</a>
+            </div>
+        </div>
+        <div class="block3">
+            <div class="block3_center">
+                <h2>EDIIYA <b> CULTURE LAB</b></h2>
+                <h3>커피를 더 특별하게 만드는 문화가 시작되는 공간</h3>
+                <a class="lineImg1" href="#"><br><br><br><br><br><br>이디야<br>뮤직 페스타</a>
+                <a class="lineImg2" href="#" ><br><br><br><br><br><br>컬쳐랩<br>시설대관</a>
+                <a class="lineImg3" href="#"><br><br><br><br><br><br>이디야<br>컬쳐랩</a>
+            
+            </div>
+        </div>
+        <div class="block4">
+           <div class="block4_center">
+               <h2>EDIIYA <b> COFFEE LAB</b></h2>
+               <h3>최고의 커피를 향한 끊임없는 노력, 이디야커피연구소</h3>
+               <div><a href="#"><img class="bigImage1"  src="images/block05_img01.jpg"><span class="top">LAB MENU</span></a></div>
+               <div><a href="#" ><img class="bigImage2"  src="images/block05_img02.jpg"><span class="top">LAB BARISTA</span></a></div>
+               
+           </div>
+        
+            
+        </div>
+        <div class="block5">
+            <div class="box1"><a href="#"><span>가맹점 개설 안내</span><span>성공 창업을 위한 선택</span></a></div>
+            <div class="box2"><a href="#"><span>매장찾기</span><span>가까운 이디야 매장을 확인해보세요.</span></a>
+            
+             <input type="text" size="30"style="font-size:12pt; color:#fff;font-family: 'arial'; height: 40px;"name="id" required autofocus placeholder=" FIND A STORE">
+             <a id="search" href="#"><img src="images/main_store_btn.png" width="44" height="44"></a>
+             
+             </div>
+             <div class="box3">
+                 <h1>이디야 소식</h1>
+                 <div class="more"><a href="#">more ></a></div>
+                 <a href="#">이디야멤버스 이용약관 변경 안내</a>
+                 <a href="#">이디야멤버스 서비스 일시 중단 안내</a>
+                 <a href="#">이디야멤버스 이용 약관 변경 예정 안내</a>
+                 <a href="#" class="brochure" ><span>브로슈어다운받기</span></a>
+             </div>
+        </div>
+        <div class="block6">
+            <h1>EDIYA COFFEE SNS</h1>
+            <h2>Coffee moment with EDIYA</h2>
+        </div>
+    </div>
+    <footer>
+        <ul class="f_ul">
+            <li><a href="#">개인정보처리방침</a></li>
+            <li><a href="#">멤버스이용약관</a></li>
+            <li><a href="#">가맹 안내</a></li>
+            <li><a href="#">대량쿠폰구매</a></li>
+            <li><a href="#">채용안내</a></li>
+            <li><a href="#">고객의 소리</a></li>
+            <li><a href="#">Sitemap</a></li>
+            <li><a href="#">점주의 방</a></li>
+        </ul>
+        <div class="bottom_logo"></div>
+        <div class="f_text">서울특별시 강남구 논현로 636이디야빌딩(서울특별시 강남구 논현동 221-17)  |  TEL : 02-543-6467  |  FAX:02-543-7191<br> 사업자등록번호 : 1074-86-16302  |  통신판매업 신고 : 강남 제 002519호 |  대표이사 : 문창기 <br><br><p>&copy; 2017 EDIYA COFFEE COMPANY. ALL RIGHTS RESERVED..</p></div>
+        <div class="ccm"></div>
+    </footer>
+    
+</body>
+</html>

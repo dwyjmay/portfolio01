@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Guess KOREA</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" rel="stylesheet">
+    <link href="css/jquery.bxslider.css" rel="stylesheet">
+    <link rel="shortcut icon" href="images/favicons.png" type="image/x-icon">
+    <!--<link href="css/index.css" rel="stylesheet">-->
+    <script src="js/jquery-1.7.2.min.js"></script>
+     <script src="js/jquery-ui.min.js"></script>
+     <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/prefixfree.min.js"></script>
+    <script src="js/jquery.mousewheel.min.js"></script>
+    <script src="js/index.js"></script>
+    
+    <script src="js/jquery.bxslider.js"></script>
+
+    <!--
+    https://thinking1.tistory.com/783
+    https://wallpaperscraft.com/catalog/minimalism
+    
+    --><style>
+    @font-face{font-family:"SuperWebcomicBros";
+    src:url(font/SuperWebcomicBros.woff);
+    }
+    @font-face{font-family:"SCDream6";
+    src:url(font/SCDream6.woff);
+    }
+    *{margin: 0; padding: 0;font-family:"SuperWebcomicBros";}
+  
+        a{text-decoration: none; outline: 0; color:#333;}
+        ul{list-style: none;}
+        img{border: 0;}
+        body{font: 12px/1.6 arial; color:#666;}
+        h1{position: fixed; top: 40px; left: 40px; z-index: 10;cursor: pointer;}
+        h1 img{width: 100px; height: auto;}
+        
+        #sns{position: fixed; top: 40px; right: 50px;z-index: 14;}
+        #sns li{float: left; margin: 0 5px;  width: 40px; height: 40px; position: relative;background: url(images/ulbgbf.png); transition: 0.5s all;}
+        #sns li i{font-size: 14pt; opacity: 0.5; transition: 0.5s all; width: 100%; height: 100%; line-height: 30px; text-align: center; color: #555;}
+        #sns li:hover i{opacity: 1;}
+        #sns li:hover {background: url(images/ulbg1.png);}
+        
+        
+        #menu{position: fixed;top: 50%;left: 5%; z-index: 13;}
+    
+        #menu li a{display: block; width: 320px;height: 60px; font-size: 20px; text-align: right; overflow: hidden; box-sizing: border-box; border-bottom: 3px solid #666; opacity: 0.8; transition: 0.5s all; line-height: 60px;}
+        #menu li:hover a{font-size: 21px; opacity: 1;}
+        #menu li.on>a{font-size: 21px; opacity: 1; color: #aa0b1f; font-weight: bold;}
+        
+        #menu li:nth-child(1):hover>a{color:#aa0b1f; border-color: #555;}
+        #menu li:nth-child(2):hover>a{color:#aa0b1f; border-color: #555;}
+        #menu li:nth-child(1).on>a{color: #aa0b1f; border-color: #555;}
+      /*  #menu li:nth-child(2).on a{color:blue; border-color: yellowgreen;}
+    */
+    #menu li:nth-child(1) dl{display: none;}
+    #menu li:nth-child(1) dl a{display: block;text-align: left; height: 40px; line-height: 40px; }
+    dl dt:hover>a, dl dd:hover>a{color:#aa0b1f; }
+     #menu li:nth-child(1) dl a{border: none;}
+    
+    
+     /*   #menu li:nth-child(3).on a{color:blue; border-color: yellowgreen;}
+        #menu li:nth-child(4).on a{color:blue; border-color: yellowgreen;}*/
+        
+        
+        section{width: 100%; height: 972px; position: relative; background-size: contain; background-position: center center; background-attachment: fixed; overflow: hidden; background-repeat: no-repeat;}
+        section:nth-child(1){background: url(images/guess-01.jpg);}
+        section:nth-child(2){background: url(images/guess-04.jpg);}
+        section:nth-child(3){background: url(images/guess-07.jpg);}
+        section:nth-child(4){background: url(images/guess-08.jpg);}
+        section:nth-child(5){background: url(images/guess-10.jpg);}
+        
+        article {position: absolute;background-color: rgba(255,255,255,0.5); bottom: 5%; right: 50px;z-index: 11; color: #111; text-align: right;}
+        article p{ font-size: 50px; letter-spacing: 2px; line-height: 1; color:#333;}
+        article span{font-size: 16px;color:#333;font-family: "SCDream6"!important;}
+
+/*옷 세부정보*/
+.info{position: absolute;left: 1130px; top:515px;  width: 40px; height: 40px;z-index: 999;}
+.tri{position: absolute;left: 0;top: 0; width: 50px; height: 50px; background: #aa0b1f; border-radius: 50%; animation: bigger 1.5s infinite;cursor: pointer;}
+.help{position: absolute; left: 20px; top: 20px;width: 200px; height: 25px; display: block;color: #fff; z-index: 99;padding-left: 5px; box-sizing: border-box;line-height: 25px;background:rgba(0,0,0,0.3); border-radius: 5px;display: none;}
+#info2{left: 1650px; top: 600px;}
+
+section:nth-child(3) .info{left: 520px;top: 400px;}
+section:nth-child(3) #info2{left: 950px;top: 800px;}
+section:nth-child(4) .info{left: 620px;top: 300px;}
+section:nth-child(4) #info2{left: 1700px;top: 500px;}
+section:nth-child(5) .info{left: 1600px;top: 350px;}
+section:nth-child(5) #info2{left: 1650px;top: 500px;}
+.suzytitle{position: absolute; left: 400px;top:200px;background: url(images/suzytitle.png);width: 600px; height: 600px; opacity: 0;transition: 2s all;}
+    .suzytitle.active{opacity: 1;}
+
+@keyframes bigger{
+    0%{opacity: 0.5; transform: scale(0.3);}
+    50%{opacity: 0.7;transform: scale(0.5);}
+    100%{opacity: 0.5;transform: scale(0.3);}
+}
+    
+    .p11{position: absolute; bottom: 20px; right: 20px; animation: bigger2 20s infinite;}
+
+    @keyframes bigger2{
+    0%{transform: scale(1);}
+    50%{transform: scale(0.9);}
+    100%{transform: scale(1);}
+}
+    </style>
+
+</head>
+<body>
+    <h1><img src="images/h1_logo.png" alt="logo"></h1>
+    <ul id="menu">
+        <li class="on"><a href="#">Suzy WIDE JEANS</a>
+        <dl>
+            <dt><a href="#">LOOK I</a></dt>    
+            <dd><a href="#">LOOK II</a></dd>
+            <dt><a href="#">LOOK III</a></dt>    
+            <dd><a href="#">LOOK IV</a></dd>    
+        </dl>
+        </li>
+        <li><a href="#">2020 S/S COLLECTION</a></li>
+    </ul>
+    <ul id="sns">
+        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="#"><i class="fab fa-blogger-b"></i></a></li>
+    </ul>
+    
+    <div id="wrap">
+        <section>
+            <div class="suzytitle"></div>
+            <article>
+                
+                <p>suzy wide jeans</p>
+                
+                <span>화보 보러가기</span>
+            </article>
+          
+            <img class="p11" src="images/DDD.png">
+            <img>
+        </section>
+        
+        <section>
+          <div class="info">
+           <div class="tri"></div>
+           <a href="#" class="help">여성 데님테잎장식 트위드자켓</a>
+           </div>
+            <div class="info" id="info2">
+           <div class="tri"></div>
+           <a href="#" class="help">M톤 플레어 붓컷</a>
+           </div>
+           
+            <article>
+                <p> LOOK I</p>
+                <span>여성 데님테잎장식 트위드자켓 [358,200 &#8361;] | M톤 플레어 붓컷 [138,000 &#8361;]</span>
+            </article>
+            <img class="p11" src="images/DDD.png">
+            <img>
+        </section>
+        
+        <section>
+           
+            <div class="info">
+           <div class="tri"></div>
+           <a href="#" class="help">여성 스윗하트넥 스모킹 블라우스</a>
+           </div>
+             <div class="info" id="info2">
+           <div class="tri"></div>
+           <a href="#" class="help">D톤 투버튼 익스트림 와이드</a>
+           </div>
+            <article>
+                <p> LOOK II</p>
+                <span> 여성 데님테잎장식 트위드자켓 [358,200 &#8361;] | M톤 플레어 붓컷 [138,000 &#8361;]</span>
+            </article>
+            <img class="p11" src="images/DDD3.png">
+            <img>
+        </section>
+        
+        <section>
+            <div class="info">
+           <div class="tri"></div>
+           <a href="#" class="help">GUESS로고 숏 가디건</a>
+           </div>
+             <div class="info" id="info2">
+           <div class="tri"></div>
+           <a href="#" class="help">D톤 벨티드 플레어 붓컷</a>
+           </div>
+            <article>
+                <p> LOOK III</p>
+                <span>GUESS로고 숏 가디건 [358,200 &#8361;] | D톤 벨티드 플레어 붓컷[138,000 &#8361;]</span>
+            </article>
+            <img class="p11" src="images/DDD.png">
+            <img>
+        </section>
+        
+        <section>
+           <div class="info">
+           <div class="tri"></div>
+           <a href="#" class="help">여성 스퀘어넥 스모킹 블라우스</a>
+           </div>
+            <div class="info" id="info2">
+           <div class="tri"></div>
+           <a href="#" class="help">여성 M톤 페이퍼백</a>
+           </div>
+            <article>
+                <p> LOOK IV</p>
+                <span> 여성 스퀘어넥 스모킹 블라우스[358,200 &#8361;] |여성 M톤 페이퍼백 [138,000 &#8361;]</span>
+            </article>
+            <img class="p11" src="images/DDD2.png">
+            <img>
+        </section>
+        <section>
+            <article>
+                <p> Part V</p>
+                <span>crew 상품 보러가기</span>
+            </article>
+               <div class="bxTop">
+            <img src="images/guess_01.jpg">
+            <img src="images/guess_02.jpg">
+            <img src="images/guess_03.jpg">
+            <img src="images/guess_04.jpg">
+            <img src="images/guess_05.jpg">
+            <img src="images/guess_06.jpg">
+            <img src="images/guess_07.jpg">
+            <img src="images/guess_08.jpg">
+            <img src="images/guess_09.jpg">
+        </div>
+        </section>
+        
+        
+    </div>
+    <!--bxslider-->
+    <script>
+    $("h1").click(function(){
+      
+        $("html,body").animate({scrollTop:0},500);
+    });
+    </script>
+     <script>
+        $(document).ready(function(){
+                      $('.bxTop').bxSlider({
+                        mode:'horizontal',      //vertical : 가로로 펼칠지 세로로 펼칠지//
+                        moveSlides:1,           //슬라이드 이동시 개수
+                        //슬라이드 사이 여백
+                        infiniteLoop:true,      // true:반복하겠다 , false : 반복 x
+                        slideWidth:1920,         //슬라이드의 너비 
+                        slideHeight:500,        //슬라이드의 높이
+                        minSlides:1,            //슬라이드 최소 노출 개수 min과 max는 숫자가 같아야 한다.
+                        maxSlides:1,            //슬라이드 최대 노출 개수
+                        speed:500,              //슬라이드 전환 속도
+                        controls:true,          //좌우로 갈 수 있는 버튼이 나옴 , false는 안 나옴.
+                        auto:true,              //자동실행여부
+                        pager:true,             // 동그라미 버튼 (개수 나타나는 부분) 노출 할건가 안할건가
+                        autoHover:false,        //호버 시 애니메이션 정지 여부
+                      });
+       });
+    </script>
+</body>
+</html>

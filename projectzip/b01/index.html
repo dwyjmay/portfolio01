@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>W Concept</title>
+    <link href="css/jquery.bxslider.css" rel="stylesheet">
+      <link rel="shortcut icon" href="images/favicons.png" type="image/x-icon">
+    
+    <!-- jquery library -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    
+    <!--bxslider JavaScript file-->
+    <script src="js/jquery.bxslider.js"></script>
+     <script>
+        $(document).ready(function(){
+                      $('.bxslider').bxSlider({
+                        mode:'horizontal',      //vertical : 가로로 펼칠지 세로로 펼칠지//
+                        moveSlides:1,           //슬라이드 이동시 개수
+                        //슬라이드 사이 여백
+                        infiniteLoop:true,      // true:반복하겠다 , false : 반복 x
+                        slideWidth:1000,         //슬라이드의 너비 
+                        slideHeight:320,        //슬라이드의 높이
+                        minSlides:1,            //슬라이드 최소 노출 개수 min과 max는 숫자가 같아야 한다.
+                        maxSlides:1,            //슬라이드 최대 노출 개수
+                        speed:900,              //슬라이드 전환 속도
+                        controls:true,          //좌우로 갈 수 있는 버튼이 나옴 , false는 안 나옴.
+                        auto:true,              //자동실행여부
+                        pager:false, 
+                        autoHover:false,        //호버 시 애니메이션 정지 여부
+                          
+                      });
+        });</script>
+    <style>
+        *{margin: 0; padding: 0;}
+        .wrap{width: 1000px; height: 1730px; margin: 0 auto;}
+        header{width: 100%; height: 70px; position: relative; margin: 0 auto;}
+        header .logo{background-image: url(images/logo.png);width: 172px; height: 65px; margin: 0 auto; }
+        header .social{width: 210px; height:70px;   position: absolute; left: 40px; top: 0; }
+        
+        /*social아이콘생성*/
+        .social .sc{width: 25px; height: 24px; }
+        .social #social1 a{background: url(images/social_icon1.gif);width: 25px; height: 24px; float: left; margin:20px 5px; transition: all 0.3s; }
+        .social #social2 a{background: url(images/social_icon2.gif);width: 25px; height: 24px;float: left;margin:20px 5px;transition: all 0.3s;}
+        .social #social3 a{background: url(images/social_icon3.gif);width: 25px; height: 24px;float: left;margin:20px 5px;transition: all 0.3s;}
+        .social #mileage a{background: url(images/mileage_ov.png); width: 87px; height: 24px; float: left;margin:20px 5px;transition: all 0.3s;}
+        
+        /*social 아이콘 호버*/
+        .social #social1 a:hover{background:url(images/social_icon1_1.png);}
+        .social #social2  :hover{background:url(images/social_icon2_1.png);}
+        .social #social3 a:hover{background:url(images/social_icon3_1.png);}
+        .social #mileage a:hover{background:url(images/btn_mileage.gif);}
+        
+        /*header부분 오른쪽*/
+        .h_right{width: 310px; height: 70px; position: absolute; right: 30px;top: 0;}
+        .h_right>ul{list-style: none; text-align: center; line-height: 70px;  width: 100%; height: 100%;}
+        .h_right ul li{display: inline-block;padding-right: 10px; border-right: 1px solid gray; height: 15px; text-align: center; line-height: 15px; font-size: 10pt;}
+        .h_right ul li:nth-child(3){border-right: 0;}
+        .h_right ul li a{color: gray; text-decoration: none;}
+        
+        .nav {position: relative;width: 1000px; height: 80px; }
+        .nav .line{position: relative; top: 30px; width: 1000px; height: 50px; background: url(images/bg_gnb.gif) repeat-x; background-position: 0 -600px;  }
+        
+        /*navigation bar*/
+        .depth1{position: relative; top: -10px; list-style: none; width: 1000px; height: 30px; text-align: center;  padding-left: 20%; box-sizing: border-box; background: #fff;  transition: all 0.5s; overflow: hidden; z-index: 150;}
+        .depth1>li{float: left;  width: 100px; height: 30px; line-height: 30px; font-weight: bold;  }
+        .depth1>li a{  width: 100px; height: 30px; line-height: 30px; text-decoration: none; color: black;}
+        .depth2{list-style: none; color: gray; font-weight: 100; font-size: 10pt; transition: all 1s;  margin: 0 auto; height: 0px;} 
+        
+        /*bx slider에 가려지는 거 막기 위해*/
+        .depth1:hover {height: 250px; z-index: 100;}
+        .depth2 li:hover a{color: dimgray; text-decoration: underline;}
+        
+        
+        /*bxslider*/
+        .bxslider{width: 100%; height: 200px;  z-index: 1;}
+        .content{width: 100%;height: 1500px; margin: 0 auto; }
+        .content_center{width: 90%; height: 800px; margin: 0 auto;  position: relative; }
+        
+        
+        /*contents사진 넣기*/
+        .content_center .ct1{width: 100%; height: 300px;  margin: 0 10px 10px 0; position: relative; }
+        .ct1 #img1{display: inline-block; height: 300px; width: 600px; overflow: hidden;  position: relative; overflow: hidden;}
+        .ct1 #img1>a{ background: url(images/bb.png); height: 300px; width: 600px; display: inline-block; background-size: cover;  position: absolute; transition: 0.5s all;  }
+        .ct1 #img1>a:hover{ transform: scale(1.1); }
+        
+        .ct1 #text1{height: 300px; width: 280px;  position: absolute; right:0; border: 1px solid gray; text-align: center; line-height: 40px; }
+        #text1 b{display: block; margin-top: 60px; }
+        
+        #text1 .small{font-size: 8pt; width: 140px; margin: 5px auto; line-height: 10pt;}
+        #text1 .view {width: 100px; height: 40px; margin: 10% auto;}
+        #text1 .view a{color: black; font-weight: bold; font-size: 8pt; display: block;width: 100px; height: 40px; text-align: center; line-height: 40px;  transition: all 0.3s;}
+        #text1 .view a:hover{background: #dc1430; border-radius: 5px; color: #fff; text-decoration: none;}
+        
+        
+        .ct1:nth-child(2) #text1 {left:0;}
+        .ct1:nth-child(2) #img2{height: 300px; width: 600px; display: inline-block; position:absolute; right: 0;overflow: hidden;}
+        .ct1:nth-child(2) #img2 a{background: url(images/atc.jpg); height: 300px; width: 600px; display: inline-block; background-size: cover;   transition: 0.5s all; }
+        .ct1:nth-child(2) #img2 a:hover {transform: scale(1.1);}
+        
+        .ct1:nth-child(3){width: 100%; height: 850px; margin-top: 25px;}
+        .ct1:nth-child(3)>span:nth-child(2){background: url(images/he.jpg);height: 557px; width: 440px; position: absolute; background-size: cover;}
+        .ct1:nth-child(3)>#text1{border: 0;  height: 200px; left: 10px; top: 300px;  color: white; font-size: 18pt; padding-top: 60px; z-index: 10; text-align: left;}
+        .ct1:nth-child(3)>#text1>b{margin-top:20px; font-size: 24pt;}
+        .ct1:nth-child(3)>#text1>.view{border:1px solid #fff;border-radius: 5px; margin: 2% auto;}
+        .ct1:nth-child(3)>#text1>.view:hover{border: 0;}
+        
+        #right1{display: block; position: absolute; right: 10px; width: 430px; height: 270px; border: 1px solid #696969;}
+        #right1>#right1_center{width: 300px; height: 225px; margin:50px auto; color: dimgray; font-size: 12pt; box-sizing: border-box;}
+        #right1_center>b{font-size: 25pt; display: block; width: 60px; height: 60px;margin: 10px auto; color: black;}
+        #right1_center>.view a, #right2_center>.view a{width: 100px; height: 40px; text-decoration: none; text-align: center; line-height: 40px; color: #fff; background: #696969; display: block; margin: 10px auto; transition: 0.5s all;border-radius: 5px;}
+        #right1_center .view a:hover,#right2_center .view a:hover {color: #696969; background: #fff;}
+        .ct1:nth-child(3) span:nth-child(4){width: 440px; height: 565px;  position: absolute; bottom: 0; right: 0; background: url(images/mim.jpg); background-size: cover;}
+         #right2{display: block; position: absolute; left: 0;bottom: 0; width: 435px; height: 264px; text-align: center; background-image: url(images/new.png); background-size: cover; padding-top: 40px; box-sizing: border-box;}
+        
+        /*footer*/
+        footer{text-align: center; width: 100%; height: 200px; line-height: 100px; background-color: dimgray;}
+        footer .footer_center{  width: 780px; height: 150px; margin: 0 auto; position: relative; color: white;}
+        .footer_center span:first-child{ width: 800px; height: 100px;}
+        
+        .privacy{width: 96px; height: 25px;  position: absolute;top: 35px; right: 0;} 
+        .privacy #red{background-image: url(images/private_ot.png); width: 96px; height: 25px; background-size: cover; display: block; transition: 0.3s all; }
+        
+        .privacy #red:hover {background: url(images/change.png)  }
+        
+        .last {list-style: none; width: 80px; height: 15px; margin: 0 auto;}
+        .last li{width: 25px; height: 15px;float: left;}
+        .last li:nth-child(1) a{display:block; background-image: url(images/facebook_ot.png);width: 8px; height: 15px; border-right: 1px solid white;  background-repeat: no-repeat;  padding: 0 5px; margin-right: 5px;}
+         .last li:nth-child(2) a{ float: left;background-image: url(images/blog_ot.png);width: 8px; height: 15px; border-right: 1px solid white;  background-repeat: no-repeat;padding: 0 5px; margin-right: 5px;}
+         .last li:nth-child(3) a{ float: left;background-image: url(images/kakao_ot.png);width: 8px; height: 15px; border-right: 0px; background-repeat: no-repeat;  margin-right: 5px;}
+        
+    </style>
+</head>
+<body>
+   <div class="wrap">
+    <header><div class="logo"></div>
+        <div class="social">
+            <span class="sc" id="social1"><a href="#"></a></span>
+            <span class="sc" id="social2"><a href="#"></a></span>
+            <span class="sc" id="social3"><a href="#"></a></span>
+            <span class="sc" id="mileage"><a href="#"></a></span>
+        </div>
+        <div class="h_right">
+            <ul>
+                <li><a href="#">LOGIN</a></li>
+                <li><a href="#">JOIN</a></li>
+                <li><a href="#">개인정보취급방침</a></li>
+            </ul>
+        </div>
+    </header>
+    
+    
+    
+    <div class="nav">
+       <div class="line"></div>
+        <ul class="depth1">
+            <li><a href="#">NEW</a>
+                <ul class="depth2">
+                    <li><a href="#">ARRIVED</a></li>
+                    <li><a href="#">NEW</a></li>
+                </ul>
+            
+            </li>
+            <li><a href="#">WOMEN</a>
+                <ul class="depth2">
+                    <li><a href="#">APPAREL</a></li>
+                    <li><a href="#">SHOES</a></li>
+                    <li><a href="#">BAGS</a></li>
+                    <li><a href="#">ACCESSORIES</a></li>
+                </ul>
+            </li>
+            <li><a href="#">MEN</a>
+                <ul class="depth2">
+                    <li><a href="#">APPAREL</a></li>
+                    <li><a href="#">SHOSE</a></li>
+                    <li><a href="#">BAGS&ACC</a></li>
+                </ul>
+            </li>
+            <li><a href="#">LIFE</a>
+                <ul class="depth2">
+                    <li><a href="#">APARTMENT</a></li>
+                    <li><a href="#">ELECTRONICS</a></li>
+                    <li><a href="#">CULTURE</a></li>
+                    <li><a href="#">BEAUTY</a></li>
+                </ul>
+            </li>
+            <li><a href="#">SALE</a>
+                <ul class="depth2">
+                    <li><a href="#">SALE</a></li>
+                    <li><a href="#">SALE EVENT</a></li>
+                </ul>
+            </li>
+            <li><a href="#">BRAND</a>
+                <ul class="depth2">
+                    <li><a href="#">EXCLUSIVE</a></li>
+                    <li><a href="#">TOP</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    
+<!--bxslider-->
+    <div class="bxslider">
+        <div class="bx_1"><img src="images/key1.jpg"></div>
+        <div class="bx_2"><img src="images/key2.jpg"></div>
+        <div class="bx_3"><img src="images/key3.jpg"></div>
+        
+    </div>
+    
+    <div class="content">
+        
+        <div class="content_center">
+            <div class="ct1"><span id="img1"><a href="#" class="scale"></a></span><span id="text1">
+                <b>buttero</b>
+                101% handcrafted<br>
+                <div class="small">A fusion of pure rawness and elegance</div>
+                <div class="view"><a href="#">view more</a></div>
+                
+            </span></div>
+            <div class="ct1"><span id="img2"><a href="#" class="scale"></a></span><span id="text1">
+                <b>buttero</b>
+                101% handcrafted<br>
+                <div class="small">A fusion of pure rawness and elegance</div>
+                <div class="view"><a href="#">view more</a></div>
+                
+            </span></div>
+            <div class="ct1">
+              
+                    
+                    <span id="text1">
+                    heich blade 17f/w collection
+                    <b>lookbook</b>
+                    <div class="view"><a href="#">view more</a></div>
+                 </span>
+                   <span></span>
+                    
+                    
+             
+                <span id="right1">
+                   <div id="right1_center">
+                    <b>sale</b>
+               다양하고 특별한 할인 혜택을 만나보세요
+                
+                <div class="view"><a href="#">view more</a></div>
+                    
+                    </div>                    
+                </span>
+                
+                <span></span>
+                <span id="right2">
+                   <div id="right1_center">
+                    <b>new</b>
+               new in this week
+                
+                <div class="view"><a href="#">view more</a></div>
+                    
+                    </div>                    
+                </span>
+            </div>
+            
+        </div>
+    </div>
+    
+    
+    <footer>
+       <div class="footer_center">
+       <span>
+           (주)더블유컨셉코리아 대표자:황재익 서울특별시 강남구 테헤란로14길 16, 5층 </span>
+           <span class="privacy"><a href="#" id="red"></a>
+           </span>
+            
+        <ul class="last">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+        </ul>
+        copyright(c) 2018 W concept all right reserved.
+        </div>
+        
+    </footer>
+    </div>
+</body>
+</html>

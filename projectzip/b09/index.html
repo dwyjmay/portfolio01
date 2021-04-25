@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>HERSHE 성형외과</title>
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="shortcut icon" href="images/favicons.png" type="image/x-icon">
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/jgSlider.js"></script>
+    <script src="js/jquery-ui-1.10.4.custom.min.js"></script>
+    
+    
+    <!--아래배너 스크립트-->
+    <script>
+$(function() {
+var slide1=$('.area ul');
+var slideList1=$('.area ul li ');
+var slideListWidth1=slideList1.width();
+function left1(){
+$('.area ul>li:last').insertBefore('.area ul>li:first');
+slide1.css({left:-slideListWidth1}).stop().animate({left:0},500);
+}
+function right1(){
+slide1.stop().animate({left:-slideListWidth1},500, function(){
+$('.area ul>li:first').insertAfter('.area ul>li:last');
+slide1.css({left:0});
+});
+}
+
+$('.left1').click(function(){
+left1();
+return false;
+});
+$('.right1').click(function(){
+right1();
+return false;
+});     
+});    
+</script>
+    
+     <script>
+    $().ready(function(){
+      //팝업창
+    
+    $(".popup").show();
+        $(".popup .close").click(function(){
+            $(".popup").hide();
+        });
+        
+        //우측하단 탑 버튼 누르면 상단으로 이동하는 동작
+        $(".gotop").click(function(){
+            $("html,body").animate({scrollTop:0},500);
+        });
+        
+        // 최상단 호버시 내려오는 동작
+//        $(".h_top").hover(function(){
+//            $(this).stop().animate({top:"-20px"});
+//           $(this).find(".pop_open img").attr({"src":"images/pop_close.png"});
+//        },function(){
+//            $(this).stop().animate({top:"-275px"});
+//         $(this).find(".pop_open img").attr({"src":"images/pop_open.png"});
+//        });
+        var state=false;
+
+        $(".h_top").click(function(){
+            if(state==false){
+            $(this).stop().animate({top:"-20px"});
+           $(this).find(".pop_open img").attr({"src":"images/pop_close.png"});    
+            }
+              state=!state;
+            console.log(state);
+        });
+          
+     
+       
+        $(".pop_open").click(function(){
+            
+             if(state==true){
+            $(".h_top").stop().animate({top:"-260px"});
+             $(this).find("img").attr({"src":"images/pop_open.png"});  
+       
+        }
+            
+            
+        });
+        
+     
+        
+        
+        // 헤더 오른쪽부분 갖다대면 이미지 바뀌는 동작
+        $(".header ul li").hover(function(){
+            var ind=$(this).index();
+            var h_arr=new Array("images/top_ul/booking_on.jpg","images/top_ul/qna_on.jpg","images/top_ul/login_on.jpg","images/top_ul/map_on.jpg");
+           
+            if(ind>=1&&ind<=4){
+                var newSrc=h_arr[ind-1];
+                $(this).find("img").attr({"src":newSrc});
+            }
+        },function(){
+             var ind=$(this).index();
+             var h_arr2=new Array("images/top_ul/booking.jpg","images/top_ul/qna.jpg","images/top_ul/login.jpg","images/top_ul/map.jpg");
+            if(ind>=1&&ind<=4){
+                var newSrc2=h_arr2[ind-1];
+                $(this).find("img").attr({"src":newSrc2});
+            }
+            
+        });
+            //nav 고정
+        
+        $(window).scroll(function(){
+            var h=$("body,html").scrollTop();
+//            console.log(h);
+            if(h>200){
+                $("nav").css({position:"fixed",top:0,zIndex:333333,backgroundColor:"#fff"});
+                
+            }
+            else{
+                $("nav").css({position:"relative",zIndex:9});
+            }
+        });
+        
+        
+        /* nav ul */
+        $("nav>ul").hover(function(){
+            $("nav>ul>li").last().slideDown();      
+            
+        },function(){
+             $("nav>ul>li").last().hide(); 
+        });
+        
+        $("nav>ul>li").mouseenter(function(){
+            var ind=$(this).index();
+          $("nav>ul>li").eq(ind).find(" .sub").stop().fadeIn(800);
+            $(".sub").addClass("on");
+           
+        
+
+        });
+         $("nav>ul>li").mouseleave(function(){
+           var ind=$(this).index();
+            $("nav>ul>li").eq(ind).find(".sub").stop().hide();
+          $(".sub").removeClass("on");
+             
+             
+        });
+        
+        /* photo review hover 시 정보 나오는 동작 */
+        
+        $(".text li").mouseenter(function(){
+            var ind=$(this).index();
+            $(".text li").eq(ind).animate({opacity:1},100);
+        });
+         $(".text li").mouseleave(function(){
+            var ind=$(this).index();
+            $(".text li").eq(ind).animate({opacity:0},100);
+        });
+
+       /* 이달의 포커스/ 이달의 알림/ 빠른상담 hover 동작*/
+        $(".block1 li").mouseenter(function(){
+            var ind=$(this).parent().index();
+            if(ind==1){
+                var ch_img=new Array("images/new/banner_14_on.jpg",
+                                     "images/new/banner_15_on.jpg",
+                                     "images/new/banner_16_on.jpg",
+                                     "images/new/banner_17_on.jpg",
+                                     
+                                    );
+                var ind2=($(this).index()-1);  //0,1,2,3
+                var str=$(this).find("img").attr({"src":ch_img[ind2]});
+             
+                
+                
+            }
+            else if(ind==2){
+                var ch_img=new Array("images/new/banner_07_on.jpg",
+                                     "images/new/banner_08_on.jpg",
+                                     "images/new/banner_09_on.jpg",
+                                     "images/new/banner_10_on.jpg",
+                                     
+                                    );
+                var ind2=($(this).index()-1);  //0,1,2,3
+                var str=$(this).find("img").attr({"src":ch_img[ind2]});
+            }
+            
+            
+        });
+        $(".block1 li").mouseleave(function(){
+             var ind=$(this).parent().index();
+            if(ind==1){
+                var ch_img=new Array("images/new/banner_14_off.jpg",
+                                     "images/new/banner_15_off.jpg",
+                                     "images/new/banner_16_off.jpg",
+                                     "images/new/banner_17_off.jpg",
+                                     
+                                    );
+                var ind2=($(this).index()-1);  //0,1,2,3
+                var str=$(this).find("img").attr({"src":ch_img[ind2]});
+             
+                
+                
+            }
+            else if(ind==2){
+                var ch_img=new Array("images/new/banner_07_off.jpg",
+                                     "images/new/banner_08_off.jpg",
+                                     "images/new/banner_09_off.jpg",
+                                     "images/new/banner_10_off.jpg",
+                                     
+                                    );
+                var ind2=($(this).index()-1);  //0,1,2,3
+                var str=$(this).find("img").attr({"src":ch_img[ind2]});
+            }
+            
+        
+            
+            
+        });
+        var num=1;
+        //우측상단 바뀌는부분
+        setInterval(function(){
+
+            var f_array=new Array("images/quick_06_off.jpg","images/quick_06_on.jpg");
+            
+            
+            if(num==1){
+                  $(".right_fixed li").eq(5).find("img").attr({"src":f_array[1]});
+                num--;
+
+            }
+            else{
+                
+                 $(".right_fixed li").eq(5).find("img").attr({"src":f_array[0]});
+                num++;
+              
+                
+            }
+//            console.log(num);
+
+          
+            
+        },1000);
+        
+    
+        
+        
+    }); //마무리
+    </script>
+    <style>
+        *{padding: 0; margin: 0;}
+        img{border: none;}
+        li{list-style: none;}
+        a{text-decoration: none; }
+        .gotop{background: url(images/top.jpg);width: 53px; height: 50px; position: fixed; right: 0; bottom: 0;z-index: 999999;cursor: pointer;}
+        .popup{width: 470px; height: 610px; position: fixed; display: none;
+        z-index: 9999999;}
+        .popup .bg{ height: 23px; position: absolute;
+        bottom: 20px; width: 100%;}
+        .popup>div{background: white;}
+        .popup p:nth-of-type(1){float: left; position: absolute; bottom: 5px; left: 50px;}
+        .popup p:nth-of-type(2){float: left; position: absolute; bottom: 5px; right: 50px;}
+        .popup div:nth-child(3){position: absolute; bottom: 5px;  left: 10px; width: 20px; text-align: center; cursor: pointer;}
+        .popup div:nth-child(4){position: absolute; bottom: 5px;  right: 10px; width: 20px; text-align: center;cursor: pointer;}
+        .h_top{ width: 100%; height: 300px;position:absolute; top: -260px;z-index: 99999999;}
+        .h_top .bogun{margin: 0 auto; display: block;width: 1336px;  height: 253px;z-index: 9999999;}
+        header{border-bottom: 3px solid gray; position: relative; height: 130px;}
+        .h_top .pop_open{display: block;width: 272px; margin:  0 auto;}
+        header .header{width: 1400px; height: 130px; margin: 0 auto; position: relative;}
+        .header .logo{display: inline-block; z-index: 99;position: relative; top: 38px;}
+        
+        .header #slogan1{position: absolute; top: 70%; transform: translateY(-50%);}
+        .header #slogan2{margin: 0 auto;position: absolute; left: 50%; transform: translate(-50%,-50%); top: 70%;}
+        
+        .header .top_ul{position: absolute;   position: absolute;  right: 0;top: 70%; transform: translateY(-50%);}
+        .top_ul li{float: left; width: 10%; margin-right: 1%; box-sizing: border-box; overflow: hidden;}
+        
+        /* nav*/
+        nav {width: 1920px; height: 90px;box-sizing: border-box;position: relative; z-index: 9; background: #f7f7f7;}
+        nav:before{content: "";display: block; position: absolute; width: 169px; height: 90px;  background: url(images/logo_ov.jpg) center center;left: 260px; }
+        nav>ul{width: 1000px; height: 100%; margin: 0 auto;} 
+        nav>ul>li{float: left; width: 9%; margin-right: 1%; height: 100%; }
+        nav>ul>li:nth-child(8){width: 12%;}
+        nav>ul>li:nth-child(9){width: 7%;}
+        nav>ul>li:nth-child(10){width: 7%;}
+        nav>ul>li>a{display: block; width: 100%; height: 100%; text-align: center; line-height: 80px; color: black; font-weight: bold; }
+        nav>ul>li:hover>a{color: darkorchid;}
+        nav>ul>li:last-child{position: absolute;background: #f7f7f7;left: 0;width: 100%; height: 140px; top: 80px;display: none;}
+        nav .sub{width: 1400px; position: absolute; left: 50%; transform: translateX(-50%);top: 50px; height: 140px;display: none;z-index: 9; transition: 0.5s top;}
+        nav .sub.on{top:80px;}
+        nav>ul li:nth-child(5) .sub li:nth-child(3) {letter-spacing: -1px;}
+        .sub li:nth-child(1){float: left; width: 385px; height: 134px;}
+        nav>ul li:nth-child(1) .sub li:nth-child(1){background: url(images/nav/nav_01.jpg);}
+        nav>ul li:nth-child(2) .sub li:nth-child(1){background: url(images/nav/nav_02.jpg);}
+        nav>ul li:nth-child(3) .sub li:nth-child(1){background: url(images/nav/nav_03.jpg);}
+        nav>ul li:nth-child(4) .sub li:nth-child(1){background: url(images/nav/nav_04.jpg);}
+        nav>ul li:nth-child(5) .sub li:nth-child(1){background: url(images/nav/nav_05.jpg);}
+        nav>ul li:nth-child(6) .sub li:nth-child(1){background: url(images/nav/nav_06.jpg);}
+        nav>ul li:nth-child(7) .sub li:nth-child(1){background: url(images/nav/nav_07.jpg);}
+        nav>ul li:nth-child(8) .sub li:nth-child(1){background: url(images/nav/nav_08.jpg);}
+        nav>ul li:nth-child(9) .sub li:nth-child(1){background: url(images/nav/nav_09.jpg);}
+        nav>ul li:nth-child(10) .sub li:nth-child(1){background: url(images/nav/nav_10.jpg);}
+        
+        nav .sub li{float: left; width: 12%; height: 50%; margin-right: 2%;}
+        .sub li a{display: block; width: 100%; height: 100%; text-align: center; line-height: 70px; color: #555; font-weight: bold;transition: 0.5s all;}
+        .sub li a:hover{color: black;}
+        .photo_review{width: 1400px; height: 400px; border-top: 2px solid lightgray; position:  relative;z-index: 9999; margin: 0 auto; top: 670px;}
+        .photo_review>p{position: absolute;  background: #fff; left: 50%; top: -35px; transform: translateX(-50%); font-size: 35pt;}
+        
+        .rv{position: absolute; top: 50px;z-index: 5;}
+        .rv li{float: left; overflow: hidden; position: relative; width: 166px; height: 171px; }
+        .rv li img{ width: 100%; height: 100%;}
+     
+        .text{ position: relative; top: 50px; height: 340px; z-index: 999; } 
+         .text li{float: left;  position: relative; width: 166px; background: rgba(44,24,77,0.5);  height: 170px;  z-index: 50; opacity: 0;}
+        .text li>a{color: #fff; text-align: center;display: block; font-size: 9pt; line-height: 30px; padding-top: 35px;} 
+        .text li:nth-child(13) a{line-height: 20px;}
+        section{width: 1400px; height: 600px; position: relative; left: 50%; transform: translateX(-50%);top: 750px;}
+        section .box{width: 33.3%; height: 50%; float: left;  position: relative;}
+        
+        section div>a:nth-of-type(1){background: url(images/tit/more.jpg); display: block; width: 70px; height:24px; display: inline-block; position: absolute; right: 20px;top: 10px;}
+        .box ul {width: 100%;}
+        .box ul li{width: 100%; box-sizing: border-box; height: 30px;}
+        .box ul p{display: inline-block;}
+        .box ul a{color: black; font-size: 10pt;}
+        .box ul p:nth-of-type(1){width: 80%;}
+        
+        .blocks{width: 1335px; height: 800px;position: relative; top: 750px; left: 50%; transform: translateX(-50%);}
+       
+        .blocks li{float: left; transition: 0.3s all; position: relative;}
+        .blocks .block1 li:nth-child(1):hover{opacity: 0.8;}
+        .blocks .block1#b1 li:hover{opacity: 0.8;}
+        .blocks a{color: white;}
+        .block1 li p{position: absolute;z-index: 999; left: 0;height: 120px; width: 272px; bottom: 0; text-align: center;}
+        .block1 #wh_b{display: block;  border: 4px solid white; height: 40px; width: 170px; text-align: center; line-height: 40px;  border-radius: 10px;margin:  20px auto; }
+        .block1 #wh_b:hover{font-weight: bold;}
+        
+        /*아래배너*/
+        #partner{width: 1300px; height: 55px; margin: 30px auto; position: relative; top: 890px; }
+#partner .left1{float: left;position: absolute;left: 0;}
+#partner .right1{float: right;right: 0; position: absolute;}
+#partner li.partner{float: left; width: 290px; height: 60px; text-align: center;}
+#partner .area{margin-left: 10px; width: 1160px; height: 60px; overflow: hidden; float: left; position: absolute; left: 50%; transform: translateX(-50%);}
+#partner .area ul{width: 2320px; height: 55px; position: relative; } 
+        
+        footer{width: 100%; min-width: 1500px; height: 1200px; background-color: #1a1a1a; position: relative;top:890px;}
+        footer .story{width: 1100px; height: 500px; border-bottom: 1px solid white; margin: 0 auto;}
+        .story>p{ text-align: center;}
+        .story>p:nth-of-type(1){font-size: 30pt; width: 500px; margin: 50px auto; padding: 50px 0;position: relative;color: white;}
+        .story>p:nth-of-type(1):before{content: "";display: block;position: absolute; border: 5px solid #a57f40; left: 50%;transform: translateX(-50%);width: 100px; bottom: 0;}
+        .story p:nth-of-type(2){color: #888;}
+        footer .sns { height: 120px; width: 65%; margin: 40px auto;}
+        
+        footer .sns li{float: left;  width: 20%; height: 100%; text-align: center;}
+        footer .sns li a{display: inline-block; width: 123px; height: 100%;color: #888; position: relative;}
+        footer .sns li:nth-child(1) a{background:url(images/sns_01.jpg);}
+        footer .sns li:nth-child(2) a{background:url(images/sns_02.jpg);}
+        footer .sns li:nth-child(3) a{background:url(images/sns_03.jpg);}
+        footer .sns li:nth-child(4) a{background:url(images/sns_04.jpg);}
+        footer .sns li:nth-child(5) a{background:url(images/sns_05.jpg); }
+        footer .sns li a p{position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); width: 80px;}
+        footer .cs{color: #a57f40;  font-size: 30pt; width: 500px; text-align: center; margin: 0 auto; height: 100px; line-height: 100px;}
+        footer .addr{width: 1320px; height: 50px; border-top:1px solid gray;border-bottom:1px solid gray; margin: 0 auto; color: #888; font-size: 10pt;text-align: center; padding-top: 10px;}
+        .addr a{color: white;}
+        footer .fl{color: white; padding-top: 50px;}
+        footer .fl ul{margin-top: 20px;}
+        footer #foot_sitemap{ height: 200px; margin: 0 auto; width: 1400px;}
+        
+        .sitemap_list>li{float:left; width: 9%; margin-right: 1%; height: 240px;position: relative;}
+        .sitemap_list>li:before{content: "";display: block; position: absolute; right: 0; top: 0; height: 120%;width: 1px;background:  gray;}
+        .sitemap_list>li:last-child:before{width: 0;}
+        .sitemap_list>li a{color:#888; font-size: 9pt;}
+        .sitemap_list>li a:hover{color:white; }
+        
+        .right_fixed{position: fixed; right: 0; top: 150px; z-index: 999; width: 105px;}
+        .right_fixed li{height: 50px;}
+        .right_fixed li:nth-child(6){height: 80px;}
+        
+    </style>
+   
+</head>
+<body>
+   <div class="gotop"></div>
+   <ul class="right_fixed">
+       <li><a href="#"><img src="images/quick_01.jpg"></a></li>
+       <li><a href="#"><img src="images/quick_02.jpg"></a></li>
+       <li><a href="#"><img src="images/quick_03.jpg"></a></li>
+       <li><a href="#"><img src="images/quick_04.jpg"></a></li>
+       <li><a href="#"><img src="images/quick_05.jpg"></a></li>
+       <li><a href="#"><img src="images/quick_06_off.jpg"></a></li>
+       <li><a href="#"><img src="images/quick_info.jpg"></a></li>
+       
+   </ul>
+    <div class="popup">
+        <img src="images/new_popup.png" alt="popup">
+        <div class="bg"><p>오늘 하루 이 창을 띄우지 않음</p>
+        <p>CLOSE</p>
+        <div class="close">x</div>
+        <div class="close">x</div>
+        </div>
+    </div>
+    
+    <header>
+       <!--최상단-->
+        <div class="h_top">
+        <a href="#" class="bogun"><img src="images/popup02.jpg"></a>
+            <a href="#" class="pop_open"><img src="images/pop_open.png"></a>
+        </div>
+        <!--메인헤더-->
+        <div class="header">
+        <a href="#" class="logo"><img src="images/logo.jpg"></a>
+         <img id="slogan1" src="images/slogan.png">   
+         <img id="slogan2" src="images/slogan02.jpg">
+      
+        <ul class="top_ul">
+            <li><a href="#"><img src="images/top_ul/kakao.jpg"></a></li>
+            <li><a href="#"><img src="images/top_ul/booking.jpg"></a></li>
+            <li><a href="#"><img src="images/top_ul/qna.jpg"></a></li>
+            <li><a href="#"><img src="images/top_ul/login.jpg"></a></li>
+            <li><a href="#"><img src="images/top_ul/map.jpg"></a></li>
+            <li><a href="#"><img src="images/top_ul/ch.jpg"></a></li>
+            <li><a href="#"><img src="images/top_ul/ru.jpg"></a></li>
+            <li><a href="#"><img src="images/top_ul/en.jpg"></a></li>
+            <li><a href="#"><img src="images/top_ul/mg.jpg"></a></li>
+       
+        </ul>
+          </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#">허쉬소개</a>
+                <ul class="sub">
+                   <li></li>
+                    <li><a href="#">허쉬, 선택의 이유</a></li>
+                    <li><a href="#">Since 1992</a></li>
+                    <li><a href="#">의료진 소개</a></li>
+                    <li><a href="#">연혁 소개</a></li>
+                    <li><a href="#">학술 및 대외활동</a></li>
+                    <li><a href="#">NEWS에 비친 허쉬</a></li>
+                    <li><a href="#">TV에 비친 허쉬</a></li>
+                    <li><a href="#">진료시간 및 병원 안내</a></li>
+                    <li><a href="#">찾아오시는 길</a></li>
+                </ul>
+            </li>
+            <li><a href="#">안티에이징</a>
+                <ul class="sub">
+                   <li></li>
+                    <li><a href="#">에프티콘 멀티리프팅</a></li>
+                    <li><a href="#">맥스리프팅</a></li>
+                    <li><a href="#">블루로즈녹는실리프팅</a></li>
+                    <li><a href="#">부위별 주름개선</a></li>
+                    <li><a href="#">엔도타인 이마거상술</a></li>
+                    <li><a href="#">목주름 리프팅</a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                </ul>
+            </li>
+            <li><a href="#">바디리프팅</a>
+                <ul class="sub">
+                   <li></li>
+                    <li><a href="#">힙업성형 에피티콘</a></li>
+                    <li><a href="#">처진가슴리프팅</a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                </ul>
+            </li>
+            <li><a href="#">얼굴살|윤곽</a>
+                <ul class="sub">
+                    <li></li>
+                     <li><a href="#">비너스레이저 V리프팅</a></li>
+                    <li><a href="#">이마지방이식</a></li>
+                    <li><a href="#">볼지방이식</a></li>
+                    <li><a href="#">무턱교정</a></li>
+                    <li><a href="#">광대뼈축소</a></li>
+                    <li><a href="#">사각턱수술</a></li>
+                    <li><a href="#">필러</a></li>
+                    <li><a href="#">입꼬리올림술</a></li>
+                    <li><a href="#"></a></li>
+                </ul>
+            </li>
+            <li><a href="#">가슴|재수술</a>
+                <ul class="sub">
+                   <li></li>
+                    <li><a href="#">허쉬가슴성형</a></li>
+                    <li><a href="#">멘토 메모리겔 엑스트라</a></li>
+                    <li><a href="#">모티바가슴성형</a></li>
+                    <li><a href="#">벨라젤가슴성형</a></li>
+                    <li><a href="#">가슴지방이식</a></li>
+                    <li><a href="#">유두교정</a></li>
+                    <li><a href="#">가슴 수술</a></li>
+                    <li><a href="#">가슴이물질(필러)제거</a></li>
+                    <li><a href="#"></a></li>
+                </ul>
+            </li>
+            <li><a href="#">눈|재수술</a>
+                <ul class="sub">
+                   <li></li>
+                    <li><a href="#">허쉬 쌍꺼풀수술</a></li>
+                    <li><a href="#">눈매교정</a></li>
+                    <li><a href="#">듀얼트임(New)</a></li>
+                    <li><a href="#">앞트임,뒤트임</a></li>
+                    <li><a href="#">쌍꺼풀재수술</a></li>
+                    <li><a href="#">눈밑지방재배치</a></li>
+                    <li><a href="#">눈썹거상술</a></li>
+                    <li><a href="#">상안검수술</a></li>
+                    <li><a href="#">하안검수술</a></li>
+                </ul>
+            </li>
+            <li><a href="#">코|재수술</a>
+                <ul class="sub">
+                   <li></li>
+                    <li><a href="#">모노코성형</a></li>
+                    <li><a href="#">메쉬코성형</a></li>
+                    <li><a href="#">코성형수술</a></li>
+                    <li><a href="#">메부리코교정</a></li>
+                    <li><a href="#">휜코 교정</a></li>
+                    <li><a href="#">들창코</a></li>
+                    <li><a href="#">화살코</a></li>
+                    <li><a href="#">콧볼축소</a></li>
+                    <li><a href="#">코재수술</a></li>
+                </ul>
+            </li>
+            <li><a href="#">레이저|스킨케어</a>
+                <ul class="sub">
+                   <li></li>
+                    <li><a href="#">리프테라 리프팅</a></li>
+                    <li><a href="#">써마지 CPT 리프팅</a></li>
+                    <li><a href="#">리펌 타이트닝(탄력)</a></li>
+                    <li><a href="#">이온자임(물광)</a></li>
+                    <li><a href="#">미라드라이(다한증)</a></li>
+                    <li><a href="#">문신제거(피코슈어)</a></li>
+                    <li><a href="#">프락셀레이저(모공)</a></li>
+                    <li><a href="#">IPL레이저토닝(미백)</a></li>
+                    <li><a href="#">튼살(울트라펄스)</a></li>
+                    <li><a href="#">화상흉터</a></li>
+                </ul>
+            </li>
+            <li><a href="#">커뮤니티</a>
+                <ul class="sub">
+                   <li></li>
+                    <li><a href="#">이달의 포커스</a></li>
+                    <li><a href="#">감사합니다 고객님</a></li>
+                    <li><a href="#">스타와 함께</a></li>
+                    <li><a href="#">포토후기</a></li>
+                    <li><a href="#">수술후기</a></li>
+                    <li><a href="#">전후사진</a></li>
+                    <li><a href="#">알쏭달쏭 성형상식</a></li>
+                    <li><a href="#">채용/모집</a></li>
+                    <li><a href="#">공지사항</a></li>
+                </ul>
+            </li>
+            <li><a href="#">상담센터</a>
+                <ul class="sub">
+                   <li></li>
+                    <li><a href="#">온라인상담</a></li>
+                    <li><a href="#">네이버톡톡</a></li>
+                    <li><a href="#">네이버예약</a></li>
+                    <li><a href="#">수술후상담</a></li>
+                    <li><a href="#">간편한 결제방법</a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                </ul>
+            </li>
+            <li></li>
+        </ul>
+    </nav>
+    <div class="container">
+<div class="jg-slider">
+<div class="big">
+<ul>
+<li class="current"><a href="">
+<img src="images/main1.jpg"></a></li>
+<li><a href=""><img src="images/main2.jpg"></a></li>
+<li><a href=""><img src="images/main3.jpg"></a></li>
+<li><a href=""><img src="images/main4.jpg"></a></li>
+<li><a href=""><img src="images/main5.jpg"></a></li>
+<li><a href=""><img src="images/main6.jpg"></a></li>
+</ul>
+</div>
+<div class="small">
+<ul>
+<a class="prev"><img src="images/bt_left.jpg"></a>
+<li class="current">27년 노하우</li>
+<li>보건복지부 장관상</li>
+<li>보건산업대상</li>
+<li>미국 성형외과학회</li>
+<li>글로벌 허쉬</li>
+<li>허쉬 포커스</li>
+<a class="next"><img src="images/bt_right.jpg"></a>
+</ul>
+</div>
+</div>
+<script>
+jQuery(".jg-slider").jgSlider({effect:"left",mouseOverStop:true});
+</script>
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-36251023-1']);
+_gaq.push(['_setDomainName', 'jqueryscript.net']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+</script>
+</div>
+    <div class="photo_review">
+        <p>PHOTO REVIEW</p>
+        <ul class="rv">
+            <li><a href="#"><img src="images/pic_01.jpg"></a></li>
+            <li><a href="#"><img src="images/pic_02.jpg"></a>
+            </li>
+            <li><a href="#"><img src="images/pic_03.jpg"></a>
+            <a></a></li>
+            <li><a href="#"><img src="images/pic_04.jpg"></a></li>
+            <li><a href="#"><img src="images/pic_05.jpg"></a></li>
+            <li><a href="#"><img src="images/pic_06.jpg"></a></li>
+            <li><a href="#"><img src="images/pic_07.jpg"></a></li>
+            <li><a href="#"><img src="images/pic_08.jpg"></a></li>
+            <li><a href="#"><img src="images/pic_10.jpg"></a></li>
+            <li><a href="#"><img src="images/pic_11.jpg"></a></li>
+            <li><a href="#"><img src="images/pic_12.jpg"></a></li>
+            <li><a href="#"><img src="images/pic_13.jpg"></a></li>
+            <li><a href="#"><img src="images/pic_14.jpg"></a></li>
+            <li><a href="#"><img src="images/pic_15.jpg"></a></li>
+            <li><a href="#"><img src="images/pic_16.jpg"></a></li>
+            <li><a href="#"><img src="images/pic_17.jpg"></a></li>
+        </ul>
+        <ul class="text">
+            <li><a href="#">여고생 현이의 상큼발랄 후기<br>+<br>[쌍꺼풀+앞트임+눈매교정]</a></li>
+            <li><a href="#">자신감 회복!!<br>되찾은 여성스러운 볼륨 라인!!<br>+<br>[물방울가슴]</a></li>
+            <li><a href="#">처진 얼굴에 탄력을!<br>+<br>[얼굴리프팅]</a></li>
+            <li><a href="#">어둡고 칙칙한 눈밑,<br>밝고 화사하게<br>+<br>[눈밑지방제거]</a></li>
+            <li><a href="#">여자의 변신은 무죄!<br>+<br>[풀페이스 + 코젤가슴성형]</a></li>
+            <li><a href="#">먹토주사녀에서 베이글녀로<br>+<br>[물방울가슴]</a></li>
+            <li><a href="#">입체감 있는 얼굴로 변신<br>+<br>[얼굴지방이식]</a></li>
+            <li><a href="#">더이상 제 얼굴이<br>부끄럽지 않습니다!!<br>+<br>[쁘띠양악]</a></li>
+            <li><a href="#">비포부터 2달째 후까지<br>후기입니디ㅏ~<br>+<br>[가슴성형]</a></li>
+            <li><a href="#">신인모델 김연지님의 리얼후기<br>+<br>[피코슈어레이저]</a></li>
+            <li><a href="#">촉감부터 자연스러운 모양까지<br>+<br>[벨라젤 가슴성형]</a></li>
+            <li><a href="#">주걱턱 컴플렉스에서<br>탈출했어요~<br>+<br>[쁘띠양악]</a></li>
+            <li><a href="#">밋밋한 얼굴의 소녀에서<br>여신이라 불리기까지 -2탄<br>+<br>[눈,코,지방이식,<br>비너스, 여드름치료]</a></li>
+            <li><a href="#">S라인의 모델을 꿈꾸며<br>+<br>[물방울가슴성형]</a></li>
+            <li><a href="#">젊음의 비밀<br>+<br>[실리프팅]</a></li>
+            <li><a href="#">콧대 하나로 차도녀로<br>변신 성공<br>+<br>[코수술]</a></li>
+           
+            
+        </ul>
+    </div>
+    <section>
+        <div class="box" id="box1">
+            <span><img src="images/tit/event_tit.jpg"></span>
+            <a href="#"></a>
+           <a href="#"><img src="images/box_9.jpg"></a>
+        </div>
+        <div class="box" id="box2">
+             <span><img src="images/tit/star_tit.jpg"></span>
+            <a href="#"></a>
+            <ul><!---->
+                <li><a href="#"><p>가수 이대원</p><p>2020.02.10</p></a></li>
+                <li><a href="#"><p>모델 이파니</p><p>2018.03.02</p></a></li>
+                <li><a href="#"><p>배우 함민지</p><p>2018.03.02</p></a></li>
+                <li><a href="#"><p>배우 최대훈</p><p>2018.01.22</p></a></li>
+                <li><a href="#"><p>배우 진선규</p><p>2017.11.28</p></a></li>
+                <li><a href="#"><p>가수 가나</p><p>2017.08.02</p></a></li>
+                <li><a href="#"><p>배우 박진우</p><p>2017.06.30</p></a></li>
+                <li><a href="#"><p>타카다 켄타</p><p>2017.06.13</p></a></li>
+            </ul>
+            
+        </div>
+        <div class="box" id="box3">
+             <span><img src="images/tit/notice_tit.jpg"></span>
+            <a href="#"></a>
+            <ul>
+                <li><a href="#"><p>[허쉬성형외과] 2020년 4월 진료일 안내</p><p>2020.03.20</p></a></li>
+                <li><a href="#"><p>[허쉬성형외과] 2020년 3월 진료일 안내</p><p>2020.02.14</p></a></li>
+                <li><a href="#"><p>강남언니앱 부기관리패키지 신청방법!..</p><p>2020.02.03</p></a></li>
+                <li><a href="#"><p>신종코로나바이러스(코로나19) 철저한 선제적 대응중..</p><p>2020.01.20</p></a></li>
+                <li><a href="#"><p>[허쉬성형외과] 2020년 2월 진료일 안내</p><p>2020.01.17</p></a></li>
+                <li><a href="#"><p>[허쉬성형외과] 2020년 1월 진료일 안내</p><p>2019.12.17</p></a></li>
+                <li><a href="#"><p>[허쉬성형외과] 2019년 12월 진료일 안내..</p><p>2019.11.28</p></a></li>
+                <li><a href="#"><p>[허쉬성형외과] 2019년 11월 진료일 안내..</p><p>2019.10.25</p></a></li>
+            </ul>
+            
+        </div>
+        <div class="box" id="box4">
+             <span><img src="images/tit/event_tit2.jpg"></span>
+            <a href="#"></a>
+            <ul>
+                <li><a href="#"><p>가슴보형물 크기는 어떤 기준으로 골라야 할까?..</p><p>2020.02.17</p></a></li>
+                <li><a href="#"><p>안면거상술 수술방법과 발생할 수 있는 부작용은?..</p><p>2020.02.14</p></a></li>
+                <li><a href="#"><p>눈밑지방재배치 부작용과 재수술 3문 3답!..</p><p>2020.02.14</p></a></li>
+                <li><a href="#"><p>[영춘TV] 힙업리프팅으로 애플힙 뒤태 만들수있나요? ..</p><p>2019.11.04</p></a></li>
+                <li><a href="#"><p>힙업수술을 실리프팅으로 하는 이유 3가지..</p><p>2019.10.01</p></a></li>
+            </ul>
+            
+        </div>
+        <div class="box" id="box5">
+             <span><img src="images/tit/star_tit2.jpg"></span>
+            <a href="#"></a>
+            <ul>
+                <li><a href="#"><p>눈 쌍커풀</p><p>2020.02.25</p></a></li>
+                <li><a href="#"><p>비너스 레이져요</p><p>2020.02.17</p></a></li>
+                <li><a href="#"><p>힙업리프팅</p><p>2020.02.16</p></a></li>
+                <li><a href="#"><p>액취증 미라드라이</p><p>2020.02.15</p></a></li>
+                <li><a href="#"><p>리프팅</p><p>2020.02.11</p></a></li>
+            </ul>
+            
+        </div>
+        <div class="box" id="box6">
+             <span><img src="images/tit/notice_tit2.jpg"></span>
+            <a href="#"></a>
+            <ul>
+                <li><a href="#"><p>[강남언니] 쌍커풀(절개, 눈매교정) 2개월 차 - bible..</p><p>2020.03.14</p></a></li>
+                <li><a href="#"><p>힙업리프팅 - 에피티콘 (1주차)</p><p>2020.03.13</p></a></li>
+                <li><a href="#"><p>[강남언니] 절개재수술 1개월 차 - 김볼냥님..</p><p>2020.03.11</p></a></li>
+                <li><a href="#"><p>[강남언니] 매몰 2주일 차 - 찲새님</p><p>2020.02.28</p></a></li>
+                <li><a href="#"><p>[강남언니] 눈밑지방제거 8일 차 - 준ㅇ맘님..</p><p>2020.02.22</p></a></li>
+            </ul>
+        </div>
+    </section>
+    <div class="blocks">
+        <ul class="block1" id="b1">
+            <li><a href="#"><img src="images/new/banner_01.jpg"></a></li>
+            <li><a href="#"><img src="images/new/banner_02.jpg"></a></li>
+            <li><a href="#"><img src="images/new/banner_03.jpg"></a></li>
+            <li><a href="#"><img src="images/new/banner_04.jpg"></a></li>
+            <li><a href="#"><img src="images/new/banner_05.jpg"></a></li>
+        
+        </ul>
+        <ul class="block1" id="b2">
+            <li><a href="#"><img src="images/new/banner_13.jpg"></a></li>
+            <li><a href="#"><img src="images/new/banner_14_off.jpg"><p>카드 무이자<a href="#" id="wh_b">관련 페이지 이동하기</a></p></a></li>
+            <li><a href="#"><img src="images/new/banner_15_off.jpg"><p>수술 실명제 엄수<a href="#" id="wh_b">관련 기사 이동하기</a></p></a></li>
+            <li><a href="#"><img src="images/new/banner_16_off.jpg"><p>강남구 우수 의료기관 선정<a href="#" id="wh_b">관련 기사 이동하기</a></p></a></li>
+            <li><a href="#"><img src="images/new/banner_17_off.jpg"><p>수험생을 위한 인터뷰<a href="#" id="wh_b">관련 기사 이동하기</a></p></a></li>
+        
+        </ul>
+        <ul class="block1" id="b3">
+            <li><a href="#"><img src="images/new/banner_06.jpg"></a></li>
+            <li><a href="#"><img src="images/new/banner_07_off.jpg"></a></li>
+            <li><a href="#"><img src="images/new/banner_08_off.jpg"></a></li>
+            <li><a href="#"><img src="images/new/banner_09_off.jpg"></a></li>
+            <li><a href="#"><img src="images/new/banner_10_off.jpg"></a></li>
+        
+        </ul>
+        
+    </div>
+    <div id="middle_layout">
+<div id="partner">
+<span class="left1"><a href="#"><img src="images/partner_left.jpg" alt="left"/></a></span>
+<div class="area">
+<ul>
+<li class="partner par_mar"><a href="#"><img src="images/partner.1.jpg" alt="partner1"/></a></li>
+<li class="partner"><a href="#"><img src="images/partner.2.jpg" alt="partner1"/></a></li>
+<li class="partner"><a href="#"><img src="images/partner.3.jpg" alt="partner1"/></a></li>
+<li class="partner"><a href="#"><img src="images/partner.5.jpg" alt="partner1"/></a></li>
+<li class="partner"><a href="#"><img src="images/partner.6.jpg" alt="partner1"/></a></li>
+<li class="partner"><a href="#"><img src="images/partner.7.jpg" alt="partner1"/></a></li>
+<li class="partner"><a href="#"><img src="images/partner.8.jpg" alt="partner1"/></a></li>
+<li class="partner"><a href="#"><img src="images/partner.8.jpg" alt="partner1"/></a></li>
+</ul>
+</div>
+<span class="right1"><a href="#"><img src="images/partner_right.jpg" alt="right"/></a></span>
+</div>
+    </div>
+    
+    
+    
+   <footer>
+      <div class="story">
+          <p>HERSHE PLASTIC SURGERY</p>
+          <p>허쉬성형외과는 27년간의 풍부한 임상 경험과 노하우를 바탕으로 자연스러운 미를 추구하고 있으며<br>
+미용성형을 중심으로 젊음을 유지하고 건강 및 활력을 증진시키는 종합적이고 체계적인 프로그램을 운영하고 있습니다.</p>
+     <ul class="sns">
+         <li><a href="#"><p>오시는길</p></a></li>
+         <li><a href="#"><p>진료시간</p></a></li>
+         <li><a href="#"><p>온라인문의</p></a></li>
+         <li><a href="#"><p>페이스북</p></a></li>
+         <li><a href="#"><p>유튜브</p></a></li>
+     </ul>
+      </div>
+      <div class="cs">상담문의 : 02.511.3911</div>
+      <div class="addr">서울시 강남구 청담동 48번지 루비나빌딩 6,7층(도로명 주소 : 서울특별시 강남구 도산대로 502 6,7층) |<a href="#"> [개인정보취급방침] </a>| 사업자등록번호 : 211-09-46633 | 통신판매신고번호 : 2011-서울강남-02924
+TEL : 02.511.3911/FAX : 02.511.9970 마케팅/제휴관련 TEL : 02.518.6688 E-mail : hersheps@hanmail.net | 상호명 : 허쉬성형외과의원| 대표자 : 정영춘| 개인정보관리책임자 : 홍기석</div>
+       
+       <div id="foot_sitemap">
+<ul class="sitemap_list">
+<li class="bordernone fl">허쉬소개
+<ul>
+<li><a href="http://hershe9.co.kr/index.php/html/14">허쉬, 선택의 이유</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/15">26년 무사고</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/16">의료진 소개</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/17">연혁소개</a></li>
+<li><a href="http://hershe9.co.kr/index.php/board/list/conference/18">학술 및 대외활동</a></li>
+<li><a href="http://hershe9.co.kr/index.php/board/list/news/19">NEWS에 비치 허쉬</a></li>
+<li><a href="http://hershe9.co.kr/index.php/board/list/tv/20">TV에 비치 허쉬</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/21">진료시간 및 병원안내</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/22">찾아오시는길</a></li>
+</ul>
+</li>
+<li class="fl">안티에이징
+<ul>
+<li><a href="http://hershe9.co.kr/index.php/html/23">에피티콘 멀티리프팅</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/33">맥스리프팅</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/5991">블루로즈녹는실리프팅</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/5988">캐번실리프팅</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/2935">부위별 주름개선</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/6025">엔도타인 이마거상술</a></li>
+</ul>
+</li>
+<li class="fl" >바디리프팅
+<ul>
+<li><a href="http://hershe9.co.kr/index.php/html/6024">힙업성형</a></li>
+</ul>
+</li>
+<li class="fl">얼굴살윤곽
+<ul>
+<li><a href="http://hershe9.co.kr/index.php/html/32">비너스레이저 V리프팅</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/2938">이마지방이식</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/2939">볼지방이식</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/2940">무턱교정</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/2941">광대뼈축소</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/2942">사각턱수술</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/2943">사각턱보톡스</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/6004">필러</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/6007">입꼬리올림술</a></li>
+</ul>
+</li>
+<li class=" fl">가슴/재수술
+<ul>
+<li><a href="http://hershe9.co.kr/index.php/html/5986">허쉬가슴성형</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/34">모티바가슴성형</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/6005">벨라젤가슴성형</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/2944">가슴지방이식</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/2945">처진가슴리프팅</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/2946">유두교정</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/2947">가슴재수술</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/2948">가슴이물질(필러)제거</a></li>
+</ul>
+</li>
+<li class="fl">눈/재수술
+<ul>
+<li><a href="http://hershe9.co.kr/index.php/html/37">허쉬 쌍꺼풀수술</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/38">눈매교정</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/6014">듀얼트임(New)</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/39">앞트임,뒤트임</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/2949">쌍꺼풀재수술</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/25">눈밑지방재배치</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/26">눈썹거상술</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/2932">상안검수술</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/2933">하안검수술</a></li>
+</ul>
+</li>
+<li class="fl">코/재수술
+<ul>
+<li><a href="http://hershe9.co.kr/index.php/html/6009">모노코성형</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/2952">메쉬코성형</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/41">코성형수술</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/42">매부리코 교정</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/43">흰코 교정</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/2950">들창코</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/2951">화살코</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/2953">콜볼축소</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/2954">코재수술</a></li>
+</ul>
+</li>
+<li class="fl">레이저/스킨케어
+<ul>
+<li><a href="http://hershe9.co.kr/index.php/html/2984">리프테라 리프팅</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/44">써마지CPT 리프팅</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/68">리펌 타이트닝(탄력)</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/51">이온자임(물광)</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/2956">미라드라이(다한증)</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/47">문신제거(피코슈어)</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/45">프락셀레이저(모공)</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/2955">IPL레이저토닝(미백)</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/29">튼살(울트라펄스)</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/28">화상흉터</a></li>
+</ul>
+</li>
+<li class="fl">커뮤니티
+<ul>
+<li><a href="http://hershe9.co.kr/index.php/board/list/focus/950">이달의 포커스</a></li>
+<li><a href="http://hershe9.co.kr/index.php/board/list/thanks/52">감사합니다 고객님</a></li>
+<li><a href="http://hershe9.co.kr/index.php/board/list/star/53">스타와 함께</a></li>
+<li><a href="http://hershe9.co.kr/index.php/board/list/real_story/54">리얼스토리</a></li>
+<li><a href="http://hershe9.co.kr/index.php/board/list/real_after/55">리얼후기</a></li>
+<li><a href="http://hershe9.co.kr/index.php/board/list/bnf_new/56">전후사진</a></li>
+<li><a href="http://hershe9.co.kr/index.php/board/list/faq/57">알쏭달쏭 성형상식</a></li>
+<li><a href="http://hershe9.co.kr/index.php/cast/list/59">채용/모집</a></li>
+<li><a href="http://hershe9.co.kr/index.php/board/list/notice/60">공지사항</a></li>
+</ul>
+</li>
+<li class="fl">상담센터
+<ul>
+<li><a href="http://hershe9.co.kr/index.php/board/list/counsel/63">온라인상담</a></li>
+<li><a href="https://nid.naver.com/nidlogin.login?svctype=64&url=https%3A%2F%2Ftalk.naver.com%2Fct%2Fwcaf88%3Fnidref%3Dhttp%253A%252F%252Fhershe9.co.kr%252Findex.php%252Fboard%252Flist%252Fcounsel%252F63%23nafullscreen" target="_blank">네이버톡톡</a></li>
+<li><a href="https://booking.naver.com/booking/8/bizes/19522" target="_blank">네이버예약</a></li>
+<li><a href="http://hershe9.co.kr/index.php/board/list/after_counsel/65">수술후상담</a></li>
+<li><a href="http://hershe9.co.kr/index.php/html/5989">간편한 결제방법</a></li>
+</ul>
+</li>
+</ul>
+</div>
+       
+   </footer> 
+    
+    
+    
+    
+</body>
+</html>

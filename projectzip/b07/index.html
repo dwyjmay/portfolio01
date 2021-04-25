@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Domino PIZZA</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+     <link href="css/jquery.bxslider.css" rel="stylesheet">
+    <link rel="shortcut icon" href="img/favicons.png" type="image/x-icon">
+     
+    
+    <!-- jquery library -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    
+    <!--bxslider JavaScript file-->
+    <script src="js/jquery.bxslider.js"></script>
+     <script>
+        $(document).ready(function(){
+                      $('.bxslider').bxSlider({
+                        mode:'horizontal',      //vertical : 가로로 펼칠지 세로로 펼칠지//
+                        moveSlides:1,           //슬라이드 이동시 개수
+                        //슬라이드 사이 여백
+                        infiniteLoop:true,      // true:반복하겠다 , false : 반복 x
+                        slideWidth:1920,         //슬라이드의 너비 
+                        slideHeight:418,        //슬라이드의 높이
+                        minSlides:1,            //슬라이드 최소 노출 개수 min과 max는 숫자가 같아야 한다.
+                        maxSlides:1,            //슬라이드 최대 노출 개수
+                        speed:500,              //슬라이드 전환 속도
+                        controls:true,          //좌우로 갈 수 있는 버튼이 나옴 , false는 안 나옴.
+                        auto:true,              //자동실행여부
+                        pager:false,             // 동그라미 버튼 (개수 나타나는 부분) 노출 할건가 안할건가
+                        autoHover:false,        //호버 시 애니메이션 정지 여부
+                        
+                      });
+       });
+    </script>
+    <style>
+        *{margin: 0; padding: 0;}
+        body, html{width: 100%; height: 100%; }
+        /*header*/
+        header{width: 1000px; height: 57px; margin: 20px auto;position: relative;}
+         .menu{ width: 30px; height: 30px; position: absolute; left: 30px;top: 14px;}
+        .menu>a{background-image: url(img/spr_btn.png); width: 30px; height: 30px; display: block;background-position: 0px -36px;}
+        .round{height: 30px; width: 80px;  border-radius: 20px; background-color: #f3f2f0;display: inline-block; position: absolute; box-shadow: 1px 1px 1px gray; top: 14px;}
+        .round>a{color: #7f8384; text-decoration: none; height: 30px; width: 80px; display: block; text-align: center;line-height: 30px;}
+        .eng{left: 80px;}
+        .coupon{left: 180px;}
+        .order{left: 280px;}
+        .login{left: 650px;}
+        .join{left: 750px;}
+        .logo{width: 245px; height: 57px; position: absolute; left: 50%;  transform: translateX(-50%);}
+        .logo>a{background-image: url(img/logo.png);width: 245px; height: 57px;  display: block;}
+        .cart{width: 40px; height: 40px; position: absolute; right: 30px;top: 10px;}
+        .cart>a{background-image: url(img/spr_btn.png); width: 36px; height: 36px; display: block;background-position: -36px 0px;}
+        /*header끝*/
+        /*navigation*/
+        .nav{background-image: url(img/main/bg_gnb.png);width: 1119px; height: 56px; margin: 0 auto;list-style: none;}
+        .nav>li{float: left;width: 158px; height: 56px; box-sizing: border-box;position: relative;}
+        .nav>li>a{color: white; text-decoration: none; display: block; height: 56px; width: 158px; text-align: center; line-height: 56px;}
+        .nav>li:before{content: "";background:url(img/bul_gnb_dot.png);width: 3px; height: 23px; position: absolute; right: 0;top: 25px;}
+        .nav>li:last-child:before{background: transparent;}
+        .nav>li:after{content: ""; width: 80px; height: 5px; background: #cc0026; position: absolute; top: 52px;left:50%; transform: translateX(-50%); opacity: 0; transition: 0.5s all;}
+        .nav>li:hover:after{opacity: 1; }
+        
+        .smenu{opacity: 0; list-style: none;width: 100px; height: 100px; margin: 10px auto;  position: relative; z-index: 9999; border-radius: 20px;background-color: #fff; transition: 0.5s all;}
+        
+        .smenu>li{width: 80px; height: 30px; margin: 0 auto;}
+        .smenu>li>a{color: #333; text-decoration: none;display: block;width: 80px; height: 30px;  line-height: 30px; text-align: center;font-size: 10pt;}
+        .smenu>li:hover>a{font-weight: bold;}
+        .nav>li:hover>.smenu{opacity: 1}
+        
+        .bxSize{width: 1920px; height: 418px; margin: 0 auto;}
+        .mainbody{width: 100%;height: 2100px; background-color: #edece8; position: relative; z-index: 9999; }
+        .main_center{width: 1100px; height: 100%; margin:0 auto; position: relative;}
+        
+        .ht_line{width: 996px; height: 154px; padding-top: 50px; margin: 0 auto;position: relative;}
+        .ht_line>div{float: left;margin-right: 10px;box-shadow: 1px 1px 3px #666;width: 322px; height: 154px;}
+        .ht1>a{background-image: url(img/main/img_customer_info_2.png);width: 322px; height: 154px;display: block;}
+        .ht2>a:first-child{background-image: url(img/main/img_customer_info2_2.png);width: 322px; height: 154px;display: block;}
+        .ht3>a:first-child{background-image: url(img/main/img_customer_info3_2.png);width: 322px; height: 154px;display: block;}
+        .ht1_txt{width: 322px; height: 50px; background-color: #fff; display: block; box-shadow: 1px 1px 3px #666;position: relative;
+        font-size: 10pt; 
+        }
+        .ht1 .ht1_txt a{color:black; text-decoration: none; border: 1px solid #333; border-radius: 10px; display: inline-block; height: 30px; width: 50px; text-align: center; line-height: 30px; position:absolute; right: 50px; top: 10px; transition: 0.3s all; }
+        .ht1 .ht1_txt a:hover{background: #333; color: #fff;}
+        .ht1_txt{display: table; }
+        .ht1_txt p{display: table-cell; vertical-align: middle; padding-left: 10px;}
+        .ht2>.ht1_txt{color: black; text-decoration: none;display: table-cell; width: 322px; height: 50px;vertical-align: middle; padding-left: 10px; box-sizing: border-box;}
+        .ht2>.ht1_txt:before{content:"";position: absolute; width: 60px; height: 60px; background-image: url(img/spr_ico.png); background-position: -40px 0; left: 120px; top: 3px;}
+        .ht3>.ht1_txt{color: black; text-decoration: none; display: table-cell;vertical-align: middle;padding-left: 10px; box-sizing: border-box;}
+        .ht3>.ht1_txt:before{content:"";position: absolute; width: 75px; height: 50px; background-image: url(img/spr_ico.png); background-position: -110px 4px; left: 120px; top: 1px;}
+        .showbox{width: 1000px; height: 1420px;position: relative; margin: 100px auto 0; }
+        .show{width:492px; height: 198px; float: left; margin: 0 0 5px 5px; box-shadow: 1px 1px 1px gray;}
+        .show>a{display: block;width: 492px; height: 198px;}
+ 
+        
+        .shImg1>a{ background-image: url(img/main/content1.jpg);}
+        .shImg2>a{ background-image: url(img/main/content2.jpg); }
+        .shImg3>a{ background-image: url(img/main/content3.jpg); }
+        .shImg4>a{ background-image: url(img/main/content4.jpg); }
+        .shImg5>a{ background-image: url(img/main/content5.jpg); }
+        .shImg6>a{ background-image: url(img/main/content6.jpg); }
+        .shImg7>a{ background-image: url(img/main/content7.jpg); }
+        .shImg8>a{ background-image: url(img/main/content8.jpg); }
+        .shImg9>a{ background-image: url(img/main/content9.jpg); }
+        .shImg10>a{ background-image: url(img/main/content10.jpg); }
+        .shImg11>a{ background-image: url(img/main/content11.jpg); }
+        .shImg12>a{ background-image: url(img/main/content12.jpg); }
+        .shImg13>a{ background-image: url(img/main/content13.jpg); }
+        .shImg14>a{ background-image: url(img/main/content14.jpg); }
+        .shImg14{ background-color: #fff;}
+      .shImg14>b{display: block;height: 40px; padding: 20px 0 0 20px;} 
+        .shImg14>a{display: block;height:35px;width: 452px; text-decoration: none; color: #333; border-top: 1px dashed #333; line-height: 35px; margin-left: 20px; box-sizing: border-box; z-index: 9999; position: relative;}
+        .main_bg{width: 100%; height: 200px; background-image: url(img/bg_content2.png); background-size: cover; background-position: 0 -30px; position: absolute;bottom: 0;}
+        footer{width: 1000px; height: 300px; margin: 0 auto; position: relative;}
+        footer>.f_left{width: 200px; height: 150px; position: absolute;}
+        .f_left>p{ position: absolute; left: 20px; top: 20px;}
+        .f_left>.call{position: absolute; left: 20px; top: 50px; width: 110px; height: 40px;}
+        .call>i{font-size: 20pt; margin-top: 3px;}
+        .sns{ width: 40px; height: 40px;}
+        .sns>a{display: block; }
+        .sns1{position: absolute; top: 90px; left: 20px;}
+        .sns2{position: absolute; top: 90px; left: 60px;}
+        .sns3{position: absolute; top: 89px; left: 100px;}
+        .sns4{position: absolute; top: 89px; left: 140px;}
+        .sns1>a{background-image: url(img/spr_ico.png);  background-position: -280px -385px;width: 40px; height: 40px; }
+        .sns2>a{background-image: url(img/spr_ico.png);  background-position: -320px -385px;width: 40px; height: 40px;}
+        .sns3>a{background-image: url(img/spr_ico.png);  background-position: -360px -385px;width: 40px; height: 40px;}
+        .sns4>a{background-image: url(img/spr_ico.png);  background-position: -420px -385px;width: 40px; height: 40px;}
+        
+        footer>.ful{list-style: none; position: absolute; left: 360px;}
+        footer>.ful>li{float: left; width: 100px; height: 40px;}
+        footer>.ful>li>a{color: #333; text-decoration: none;display: block; width: 100px; height: 40px; text-align: center; line-height: 40px; font-size: 10pt; letter-spacing: -3px;}
+        footer>.ful>li:nth-child(2)>a{font-weight: bold;}
+        footer>p{position: absolute; left: 390px; top: 50px; font-size: 11pt;}
+        footer>.fimg{list-style: none; position: absolute; top: 160px;width: 1000px; height: 50px;left: 50%; transform:translateX(-50%);}
+        .fimg>li{float: left; width: 200px; height: 50px; font-size: 8pt; }
+        .fimg>li>p{display: inline-block; margin-left: 10px;  position: absolute; top: 50%; transform: translateY(-50%);}
+        .fimg>li:nth-child(1){width: 160px;}
+        .fimg>li:nth-child(2){width: 150px;}
+        .fimg>li:nth-child(3){width: 210px;}
+        .fimg>li:nth-child(4){width: 250px;}
+        
+        .quick{ width: 80px; height: 600px;position: fixed ;z-index: 99999; right: 100px; top: 170px;}
+    
+        .quick>div:nth-child(1)>a{display: block;background-image: url(img/main/img_quick.png); width: 173px; height: 190px; position: relative;}
+        .quick>div:nth-child(1)>a>p{color: white;position: absolute; bottom: 30px; left: 30px;text-align: center;}
+        .quick>div:nth-child(2)>a{display: block;background-image: url(img/main/img_quick_order.png); width: 122px; height: 139px;background-repeat: no-repeat;}
+        .quick>div:nth-child(3)>a{display: block;background-image: url(img/main/img_quick_order2.png); width: 122px; height: 120px; background-repeat: no-repeat;}
+        .quick>div:nth-child(4)>a{display: block;background-image: url(img/main/img_quick_order3.png); width: 122px; height: 110px; background-repeat: no-repeat;}
+        hr{top: 150px; position: relative;}
+        
+        .bnr{width: 238px; height: 154px;  position: relative; float: left; margin-right: 5px; left: 55px;}
+        .bnr>a:nth-child(1){background-color: white; background-image: url(img/main/img_bnr_fix.png);width: 238px; height: 108px; display: block;}
+        .bnr>a:nth-child(2){width: 238px; height: 60px!important; color: #000; text-decoration: none; font-size: 8pt; padding:10px 20px 0 20px;box-sizing: border-box;}
+        .bnr2>a:nth-child(1){background-color: white; background-image: url(img/main/img_bnr_fix2.png);width: 238px; height: 108px; display: block;}
+       
+        .nav>li:nth-child(6)>.smenu{height: 60px;}
+        
+    </style>
+</head>
+<body>
+  
+    <header>
+       
+        <div class="menu"><a href="#"></a></div>
+        <div class="round eng"><a href="#">english</a></div>
+        <div class="round coupon"><a href="#">coupon</a></div>
+        <div class="round order"><a href="#">order</a></div>
+        <div class="logo"><a href="#"></a></div>
+        <div class="round login"><a href="#">login</a></div>
+        <div class="round join"><a href="#">join</a></div>
+        <div class="cart"><a href="#"></a></div>
+    </header>
+ 
+        <ul class="nav">
+            <li><a href="#">피자</a>
+                <ul class="smenu">
+                    <li><a href="#">슈퍼시드</a></li>
+                    <li><a href="#">프리미엄</a></li>
+                    <li><a href="#">클래식</a></li>
+                </ul>
+            </li>
+            <li><a href="#">사이드디시</a>
+                <ul class="smenu">
+                    <li><a href="#">사이드디시</a></li>
+                    <li><a href="#">음료</a></li>
+                    <li><a href="#">피클&소스</a></li>
+                </ul>
+            </li>
+            <li><a href="#">특가제품</a>
+             
+            </li>
+            <li><a href="#">내맘대로 피자</a>
+                <ul class="smenu">
+                    <li><a href="#">하프&하프</a></li>
+                    <li><a href="#">마이키친</a></li>
+                    <li><a href="#">추가토핑</a></li>
+                </ul>
+            </li>
+            <li><a href="#">이벤트&할인</a>
+                <ul class="smenu">
+                    <li><a href="#">오늘의이벤트</a></li>
+                    <li><a href="#">매니아 혜택</a></li>
+                    <li><a href="#">할인&제휴</a></li>
+                </ul>
+            </li>
+            <li><a href="#">E-쿠폰&상품권</a>
+                <ul class="smenu">
+                    <li><a href="#">E-쿠폰</a></li>
+                    <li><a href="#">상품권</a></li>
+                </ul>
+            </li>
+            <li><a href="#">선물하기</a>
+                <ul class="smenu">
+                    <li><a href="#">전체</a></li>
+                    <li><a href="#">지류상품권</a></li>
+                    <li><a href="#">모바일상품권</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="bxSize">
+  <div class="bxslider">
+      <div class="slide1"><img src="img/main/slide1.jpg"></div>
+      <div class="slide2"><img src="img/main/slide2.jpg"></div>
+      <div class="slide3"><img src="img/main/slide3.jpg"></div>
+      <div class="slide4"><img src="img/main/slide4.jpg"></div>
+      <div class="slide5"><img src="img/main/slide5.jpg"></div>
+      <div class="slide6"><img src="img/main/slide6.jpg"></div>
+      <div class="slide7"><img src="img/main/slide7.jpg"></div>
+
+  </div></div>
+   <div class="mainbody">
+      <div class="quick">
+          <div><a href="#"><p>온라인<br>주문하기</p></a></div>
+          <div><a href="#"></a></div>
+          <div><a href="#"></a></div>
+          <div><a href="#"></a></div>
+         
+      </div>
+       <div class="main_center">
+           <div class="ht_line">
+               <div class="ht1"><a href="#"></a>
+               <div class="ht1_txt"><p>로그인하시면 <br>풍성한 혜택이 가득!</p><a href="#" id="login">login</a></div>
+               </div>
+               <div class="ht2"><a href="#"></a>
+               <a href="#"  class="ht1_txt" id="login">온라인 회원만의  <br>매니아 혜택</a>
+               </div>
+               <div class="ht3"><a href="#"></a>
+               <a href="#"  class="ht1_txt" id="login">내 주변  <br>이벤트 매장</a>
+               </div>
+           </div>
+           <div class="showbox">
+           <div class="show shImg1"><a href="#"></a></div>
+           <div class="show shImg2"><a href="#"></a></div>
+           <div class="show shImg3"><a href="#"></a></div>
+           <div class="show shImg4"><a href="#"></a></div>
+           <div class="show shImg5"><a href="#"></a></div>
+           <div class="show shImg6"><a href="#"></a></div>
+           <div class="show shImg7"><a href="#"></a></div>
+           <div class="show shImg8"><a href="#"></a></div>
+           <div class="show shImg9"><a href="#"></a></div>
+           <div class="show shImg10"><a href="#"></a></div>
+           <div class="show shImg11"><a href="#"></a></div>
+           <div class="show shImg12"><a href="#"></a></div>
+           <div class="show shImg13"><a href="#"></a></div>
+           <div class="show shImg14"><b>공지사항</b>
+           <a href="#">2017년 추석 연휴 도미노피자 영업 안내</a>
+           
+           <a href="#">도미노 피자 x 스프라이트 이벤트 당첨자 발표</a>
+        
+           <a href="#">2017년 9월 프로야구 이벤트 당첨자 홈페이지 안내</a>
+           </div>
+           </div>
+           <div class="bnr"><a href="#"></a>
+               <a href="#"  class="ht1_txt" id="login"><b>한국 도미노 피자</b><br>최고의 피자 전문가이자 피자마스터 한국도미노피자를 소개합니다.</a>
+               </div>
+            <div class="bnr bnr2"><a href="#"></a>
+               <a href="#"  class="ht1_txt" id="login"><b>도미노피자 오픈 서베이</b><br>고객님의 의견을 올려주시고 20%할인 혜택도 받으세요.</a>
+               </div>   
+               <div class="main_bg"></div>
+       </div>
+       
+   </div>
+    
+    <footer>
+        <div class="f_left">
+            <p>전화주문</p>
+            <div class="call"><i class="fas fa-phone-volume"></i>1577-3082</div>
+        
+            
+            <div class="sns sns1"><a href="#"></a></div>
+            <div class="sns sns2"><a href="#"></a></div>
+            <div class="sns sns3"><a href="#"></a></div>
+            <div class="sns sns4"><a href="#"></a></div>
+        </div>
+        <ul class="ful">
+            <li><a href="#">회사소개</a></li>
+            <li><a href="#">개인정보&nbsp; 처리방침</a></li>
+            <li><a href="#">이용약관</a></li>
+            <li><a href="#">고객센터</a></li>
+        </ul>
+        <p>
+            135-982. 서울특별시 강남구 언주로 315 청오디피케이(주) | 문의:webmaster@dominos.co.kr<br>사업자 등록번호:220-81-03371 | 통신판매업신고 : 강남 5064호 | 개인정보 보호책임자 : 이명윤 | 대표이사 : 오광헌 <br> Copyright &copy; 2017 by Domino's Pizza. All rights reserved.
+            
+        </p>
+        <hr>
+        <ul class="fimg">
+            <li><img src="img/footer/list_awards.png"><p>식품안전<br>경영시스템 인증</p></li>
+            <li><img src="img/footer/list_awards2.png"><p>지식경제부<br>우수디자인 선정</p></li>
+            <li><img src="img/footer/list_awards3.png"><p>고객이 가장 추천하는 기업<br> 피자전문점 부문 4년 연속 1위</p></li>
+            <li><img src="img/footer/list_awards4.png"><p>2016년 "대한민ㄴ국인터넷소통대상",<br>"대한민국소셜미디어대상"<br>leading start(7년 연속종합 1위)</p></li>
+            <li><img src="img/footer/list_awards5.png"><p>2017년 한국산업 고객만족도<br> 피자전문점 부문 3년 연속 1위</p></li>
+           
+        </ul>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Round AROUND</title>
+     <link href="css/jquery.bxslider.css" rel="stylesheet">
+     <link rel="shortcut icon" href="images/favicons.png" type="image/x-icon">
+    
+    <!-- jquery library -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    
+    <!--bxslider JavaScript file-->
+    <script src="js/jquery.bxslider.js"></script>
+     <script>
+        $(document).ready(function(){
+                      $('.bxsliderFirst').bxSlider({
+                        mode:'horizontal',      //vertical : 가로로 펼칠지 세로로 펼칠지//
+                        moveSlides:1,           //슬라이드 이동시 개수
+                        //슬라이드 사이 여백
+                        infiniteLoop:true,      // true:반복하겠다 , false : 반복 x
+                        slideWidth:1600,         //슬라이드의 너비 
+                        slideHeight:500,        //슬라이드의 높이
+                        minSlides:1,            //슬라이드 최소 노출 개수 min과 max는 숫자가 같아야 한다.
+                        maxSlides:1,            //슬라이드 최대 노출 개수
+                        speed:900,              //슬라이드 전환 속도
+                        controls:true,          //좌우로 갈 수 있는 버튼이 나옴 , false는 안 나옴.
+                        auto:true,              //자동실행여부
+                        pager:true,             // 동그라미 버튼 (개수 나타나는 부분) 노출 할건가 안할건가
+                        autoHover:false,        //호버 시 애니메이션 정지 여부
+                          
+                      });
+       });
+         
+         $(document).ready(function(){
+                      $('.bxsliderSecond').bxSlider({
+                        mode:'horizontal',      //vertical : 가로로 펼칠지 세로로 펼칠지//
+                        moveSlides:2,           //슬라이드 이동시 개수
+                        slideMargin:30,//슬라이드 사이 여백
+                        infiniteLoop:true,      // true:반복하겠다 , false : 반복 x
+                        slideWidth:1600,         //슬라이드의 너비 
+                        slideHeight:320,        //슬라이드의 높이
+                        minSlides:4,            //슬라이드 최소 노출 개수 min과 max는 숫자가 같아야 한다.
+                        maxSlides:4,            //슬라이드 최대 노출 개수
+                        speed:400,              //슬라이드 전환 속도
+                        controls:true,          //좌우로 갈 수 있는 버튼이 나옴 , false는 안 나옴.
+                        auto:true,              //자동실행여부
+                        pager:false,             // 동그라미 버튼 (개수 나타나는 부분) 노출 할건가 안할건가
+                        autoHover:false,        //호버 시 애니메이션 정지 여부
+                          
+                      });
+       });
+    </script>
+       <style>
+           *{margin: 0; padding: 0;}
+           .wrapper {width: 100% ; height: 2000px;  margin: 0 auto;}
+          
+           /*header*/
+           header {width: 100%; height: 92px;}
+           
+           header #logo {background-image: url(images/logo_s.png); width: 160px; height:
+           46px; margin: 23px auto; display: inline-block; margin-left: 45%;}
+           header #logo_right {float: right;  width: 250px; height: 92px; 
+           background-image: url(images/logo_right.jpg); background-size: cover;}
+           
+           /*nav style*/
+           .nav{width: 100% ; height: 40px; margin: 0 auto;}
+           .nav ul{ width: 80% height
+           45px; text-align: center; line-height: 40px;}
+           .nav ul li {width: 150px; height: 40px; display: inline-block; line-height: 40px;}
+           .nav ul li a{width: 150px; height: 40px; text-decoration: none; color:grey;}
+           .nav ul li a:hover{color: #7a836b; font-size: 14pt;  font-weight: bold; border-top: 1px solid #7a836b;}
+           
+           .brandStory {width: 1920px; height: 530px;  margin: 0 auto;  margin-left: 8%;}
+           /*
+           .brandStory {width: 100%; height: 400px; border: 1px solid yellow;}
+           .bxsliderFirst {width: 100% ; height: 400px;
+           border: 1px solid blue;}
+           */
+           .bxsliderFirst {width: 1902px; height: 500px; margin: 0 auto; }
+           .slider1_1 {background-image: url(images/story/story2.jpg); height: 500px; width: 100%; }
+           
+           
+           .withText {font-size: 30pt; color:beige; width: 600px; text-align: center; height: 200px;  margin: 13% auto;}
+           .slider1_2 {background-image: url(images/story/story3.jpg); height: 500px; width: 1920px;}
+           .slider1_3 {background-image: url(images/story/story4.jpg); height: 500px; width: 1600px;}
+           .slider1_3 .withText{width: 800px;}
+           .slider1_4 {background-image: url(images/story/story7.jpg); height: 500px; width: 1600px;}
+           .slider1_4 .withText{width: 900px; color: dimgray;}
+           
+           /*RARA Moments*/
+           
+           .raraMoments {width: 1000px ; height: 800px; margin: 0 auto;position: relative;}
+           
+           .raraMoments .rm_title {width: 100% ; height: 25px; font-family: "맑은 고딕"; font-size: 14pt; font-weight: bold;
+           }
+           
+           .raraMoments .hidden01{position: absolute;display: none; background-color:#7a836b; height: 75px; width: 324px;  top: 250px; text-align: center; color: white; line-height: 30px; }
+           .raraMoments .rmImage01{background-image: url(images/rm1.jpg); width: 324px; height: 324px;  opacity: 0.8; position: absolute; }
+           .raraMoments .rmImage01:hover {opacity: 1;}
+           .raraMoments .rmImage01:hover ~ .hidden01{ display: block;  opacity: 0.9;}
+           
+           
+          
+           
+           .raraMoments .hidden02{position: absolute; display: none; left: 340px; background-color: #ddf1ee; height: 75px; width: 324px; top: 358px; text-align: center; line-height: 30px;}
+           .raraMoments .rmImage02{background-image:url(images/rm3.jpg); width: 324px; height: 432px; opacity: 0.8; position: absolute; left: 340px;}
+           .raraMoments .rmImage02:hover {cursor: pointer;opacity: 1; }
+           .raraMoments .rmImage02:hover ~.hidden02{display: block; opacity: 0.7; }
+           
+           
+           .raraMoments .hidden03{position: absolute; left: 680px; top: 250px; display: none; height: 75px; width: 324px; background-color: #e4bfe5; text-align: center; line-height: 30px; }
+           .raraMoments .rmImage03{background-image: url(images/rm5.jpg); width: 324px;height: 324px; opacity: 0.8; position: absolute; left: 680px;}
+           .raraMoments .rmImage03:hover{opacity: 1;}
+           .raraMoments .rmImage03:hover ~.hidden03{display: block; opacity: 0.7;}
+           
+    
+           
+           .raraMoments .hidden04{position: absolute; display: none;  background-color: #fde125; height: 75px; width: 324px; top: 685px; text-align: center; line-height: 30px;}
+           .raraMoments .rmImage04{background-image:url(images/rm4.jpg); width: 324px; height: 432px; opacity: 0.8; position: absolute; top: 370px;}
+           .raraMoments .rmImage04:hover {opacity: 1; }
+           .raraMoments .rmImage04:hover ~.hidden04{display: block; opacity: 0.7; }
+           
+           .raraMoments .hidden05{position: absolute;   display: none; background-color: #d9e4d3; height: 75px; width: 324px; top: 685px; left: 340px; text-align: center; line-height: 30px;}
+           .raraMoments .rmImage05{background-image:url(images/rm6.jpg); width: 324px; height: 324px; background-size: cover; opacity: 0.8; position: absolute; top: 480px; left: 340px;}
+           .raraMoments .rmImage05:hover {opacity: 1; }
+           .raraMoments .rmImage05:hover ~.hidden05{display: block; opacity: 0.7; }
+           
+           
+           .raraMoments .hidden06{position: absolute; display: none;  background-color:grey; height: 75px; width: 324px; top: 685px;  left: 680px; text-align: center; line-height: 75px; color: white;}
+           .raraMoments .rmImage06{background-image:url(images/rm2.jpg); width: 324px; height: 432px; opacity: 0.8; position: absolute; top: 370px; left: 680px;}
+           .raraMoments .rmImage06:hover {opacity: 1; }
+           .raraMoments .rmImage06:hover ~.hidden06{display: block; opacity: 0.7; }
+           
+           
+           .skinCare {width: 1000px; height: 1100px; margin: 5% auto; }
+           .skinCare .block1 {width: 100%; height:
+           150px;  }
+           .block1 .sc_ment {font-size: 50pt; height: 100px; width: 100%;text-align: center;}
+           .block1 .ment_plus{color: dimgray; font-size: 10pt; width: 100%; height : 10%; margin: 10auto;  text-align: center; }
+           
+           .sc01 {width: 100% ;height: 408px; margin-bottom: 30px;}
+           .sc01 .center {width: 90%; height: 408px; margin: 0 auto; position: relative;}
+           .sc01 .greenteaImage{background-image: url(images/figure04.jpg); height: 408px; width: 306px; float: left;}
+           .sc01 .greenteaName {background-image: url(images/care1.jpg); height: 273px; width: 206px; float: left;}
+           
+          /*스킨케어 카테고리 -1 */
+           .sc01 .greenteaP1{color: transparent; text-align: center; background-image: url(images/greenteaP1.png); width: 200px; height: 200px; background-size: cover; float: left; margin-top: 100px; transition: all 0.3s ease-in-out;}
+           .sc01 .greenteaP1:hover { color: gray; transform: scale(1.1); -webkit-transform:scale(1.1); /*for chrome*/}
+          
+           
+           .sc01 .greenteaP2{color: transparent; text-align: center;  background-image: url(images/greenteaP2.png); width: 180px; height: 180px; background-size: cover; float: left;  margin-top: 100px;transition: all 0.3s ease-in-out; overflow: hidden;}
+           .sc01 .greenteaP2:hover {color: gray; transform: scale(1.1); -webkit-transform:scale(1.1);}
+           
+           .more {width:100px; height: 50px; border: 1px solid gray;  clear: both; position: absolute; left: 50%; bottom: 0;text-align: center;line-height: 50px;}
+           .more a{font-size: 15pt; text-decoration: none; color:black; width:100px; height: 50px;}
+           
+           /*스킨케어 카테고리 -2*/
+           
+           
+           .sc01 .baseImage{background-image: url(images/figure03.jpg); height: 408px; width: 306px; float: right;}
+           .sc01 .baseName {background-image: url(images/care2.jpg); height: 273px; width: 206px; float: right; }
+           
+          
+           .sc01 .baseP1{color: transparent; text-align: center; background-image: url(images/basicP1.png); width: 200px; height: 200px; background-size: cover; float: right; margin-top: 100px; transition: all 0.3s ease-in-out;}
+           .sc01 .baseP1:hover { color: gray; transform: scale(1.1); -webkit-transform:scale(1.1); /*for chrome*/}
+          
+           
+           .sc01 .baseP2{ font-size: 10pt; color: transparent; text-align: center;  background-image: url(images/basicP2.png); width: 180px; height: 180px; background-size: cover; float: right;  margin-top: 130px;transition: all 0.3s ease-in-out; overflow: hidden;}
+           .sc01 .baseP2:hover {color: gray; transform: scale(1.1); -webkit-transform:scale(1.1);}
+           
+           
+           /*프래그런스 카테고리 -1*/
+           
+            .sc01 .homeImage{background-image: url(images/figure02.jpg); height: 408px; width: 306px; float: left;}
+           .sc01 .homeName {background-image: url(images/fragrance1.jpg); height: 256px; width: 246px; float: left; }
+           
+          
+           .sc01 .homeP1{color: transparent; text-align: center; background-image: url(images/homeP1.png); width: 180px; height: 180px; background-size: cover; float: left; margin-top: 100px; margin-left: -30px; transition: all 0.3s ease-in-out;}
+           .sc01 .homeP1:hover { color: gray; transform: scale(1.1); -webkit-transform:scale(1.1); /*for chrome*/}
+          
+           
+           .sc01 .homeP2{  color: transparent; text-align: center;  background-image: url(images/homeP2.png); width: 180px; height: 180px; background-size: cover; float: left;  margin-top: 100px;transition: all 0.3s ease-in-out; overflow: hidden;}
+           .sc01 .homeP2:hover {color: gray; transform: scale(1.1); -webkit-transform:scale(1.1);}
+           
+           /*프래그런스 카테고리 -2*/
+           
+               
+           
+           .sc01 .lifeImage{background-image: url(images/figure01.jpg); height: 408px; width: 306px; float: right;}
+           .sc01 .lifeName {background-image: url(images/fragrance2.jpg); height: 240px; width: 254px; float: right; }
+           
+          
+           .sc01 .lifeP1{color: transparent; text-align: center; background-image: url(images/lifeP1.png); width: 190px; height: 190px;  margin-right: -30px; background-size: cover; float: right; margin-top: 100px; transition: all 0.3s ease-in-out;}
+           .sc01 .lifeP1:hover { color: gray; transform: scale(1.1); -webkit-transform:scale(1.1); /*for chrome*/}
+          
+           
+           .sc01 .lifeP2{ font-size: 10pt; color: transparent; text-align: center;  background-image: url(images/lifeP2.png); width: 180px; height: 180px; background-size: cover; float: right;  margin-top: 100px;transition: all 0.3s ease-in-out; overflow: hidden;}
+           .sc01 .lifeP2:hover {color: gray; transform: scale(1.1); -webkit-transform:scale(1.1);}
+           
+           
+           .videoSpace {width: 100% ; height: 400px; background-color: #7a836b;}
+           .youtube {width: 500px; height: 400px;  margin: 0 auto;}
+           
+           
+           .bottom{width: 100% ; height: 150px;}
+           
+           .bottom .bCenter {width: 530px; height: 150px; margin: 0 auto;}
+           .bCenter h3{font-size: 40pt;}
+           .bCenter .center {width: 200px; height: 40px; margin: 20px auto; }
+           #circleLogo{background-image: url(images/icons.png);  background-position: -120px 0;height: 40px; width: 40px;  float: left; }
+           
+           #official{float: left;}
+           #official a{text-decoration: none; color: black;}
+           
+           .slider2_1 {background-image: url(images/bxslider_bottom/rr_0.jpg); height: 320px; width: 320px; background-size: cover;}
+           .slider2_2 {background-image: url(images/bxslider_bottom/rr_1.jpg); height: 320px; width: 320px; background-size: cover;}
+           .slider2_3 {background-image: url(images/bxslider_bottom/rr_2.jpg); height: 320px; width: 320px; background-size: cover;}
+           .slider2_4 {background-image: url(images/bxslider_bottom/rr_3.jpg); height: 320px; width: 320px; background-size: cover;}
+           .slider2_5 {background-image: url(images/bxslider_bottom/rr_5.jpg); height: 320px; width: 320px; background-size: cover;}
+           
+           footer {width: 100%; height: 300px; background-color:#f9f9f9; }
+           footer .move {width: 50%; height: 300px; margin: 0 auto; 
+           }
+           footer .bigLogo {background: url(images/logo.png);width: 200px; height: 55px; background-size: cover; }
+           
+           footer ul { margin: 20px 0; width: 410px; height: 25px;text-align: center; }
+           footer ul li{width: 130px; height: 20px; display: inline-block; margin: 0;}
+           
+           footer .copy{margin: 30px 0;}
+    </style>
+        
+</head>
+<body>
+
+    <div class="wrapper">
+        <header>
+            <div id="logo"></div>
+            <div id="logo_right"></div>
+        </header>
+        
+        
+        <div class="nav">
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">RARA Moments</a></li>
+                <li><a href="#">Stores</a></li>
+                
+            </ul>
+            
+        </div>
+        <div class="brandStory">
+        <div class="bxsliderFirst">
+                <div class="slider1_1">
+                   <div class="withText">
+                    화려하거나 도드라지지는 않지만  꼭 필요한 것만을 담아,<br>  피부가 편안한 스킨케어
+                    </div>
+                </div>
+                
+                <div class="slider1_2">
+                    <div class="withText">
+                   바쁜 하루 속, <br>여유로움을 느끼해주는 <br>감성적인 향기
+                    </div>  
+                </div>
+                
+                <div class="slider1_3">
+                    <div class="withText">
+                  복잡한 하루 끝,<br> 지친몸과 마음을 평온하게 해주는 바디케어                    
+                    </div>
+                </div>
+                
+                
+                <div class="slider1_4">
+                   <div class="withText">
+                        소중한 당신을 위해, 조금 더 특별하게 <br>늘 당신 곁에 머물러 휴식같은 케어를 제안합니다.             
+                                      
+                    </div> 
+                    
+                    
+                </div>
+        </div>
+        
+        
+        
+        </div>
+        
+        <div class="raraMoments">
+            <div class="rm_title">RARA Moments</div>
+            
+            
+            <div class="rmImage01"></div>
+            <div class="hidden01">바라만 봐도 힐링,<br>내 공간 속 초록이 '선인장 디퓨저'</div>
+            
+            
+            <div class="rmImage02"></div>
+            <div class="hidden02">피부 휴식의 시작,<br>착한성분 그린티 클렌징</div>
+            
+            <div class="rmImage03"></div>
+            <div class="hidden03">꽃잎도 향기도 시들지 않는 <br> 드라이플라워 디퓨저</div>
+           
+           
+            <div class="rmImage04"></div>
+            <div class="hidden04">지친 하루를 다독여주는<br> 나만의 힐링케어</div>
+            
+          
+             <div class="rmImage05"></div>
+            <div class="hidden05">그린티가 만들어준 <br>'피부 휴식' 습관</div>
+            
+             <div class="rmImage06"></div>
+            <div class="hidden06">향기로 공간을 스타일링 하세요!</div>
+           -->
+            
+        </div>
+        
+        <div class="skinCare">
+           <div class="block1">
+            <div class="sc_ment">Skin Care</div>
+            <div class="ment_plus">바쁜 일상 속에서도 그 무엇보다 소중한 나의 피부를 위한 스킨케어를 제안합니다.</div>
+            
+            </div>
+            
+            <div class="sc01">
+               <div class="center">
+                <div class="greenteaImage"></div>
+                <div class="greenteaName"></div>
+             
+                <div class="greenteaP1">그린티 약산성 클렌징폼</div>
+                <div class="greenteaP2">그린티 수퍼 씨드 오일</div>
+                
+                
+                   <div class="more"><a href="#">More</a>
+                   
+                   </div>
+                   
+                   
+            </div>
+            </div>
+            
+            
+            <div class="sc01">
+               <div class="center">
+                <div class="baseImage"></div>
+                <div class="baseName"></div>
+             
+                <div class="baseP1">리페어링 액티브 세럼</div>
+                <div class="baseP2">컴포트 하이드레이팅 워터</div>
+                
+                
+                   <div class="more"><a href="#">More</a>
+                   
+                   </div>
+                   
+                   
+            </div>
+            </div>
+            
+            
+        </div>
+        <hr>
+          <div class="skinCare">
+           <div class="block1">
+            <div class="sc_ment">Fragrance</div>
+            <div class="ment_plus">나와 나를 둘러싼 모든 시간과 공간을 더 가치있게 채워주는 라운드어라운드의 프래그런스</div>
+            
+            </div>
+            
+            <div class="sc01">
+               <div class="center">
+                <div class="homeImage"></div>
+                <div class="homeName"></div>
+             
+                <div class="homeP1">선인장 디퓨저</div>
+                <div class="homeP2">드라이플라워 디퓨저</div>
+                
+                
+                   <div class="more"><a href="#">More</a>
+                   
+                   </div>
+                   
+                   
+            </div>
+            </div>
+            
+            
+            <div class="sc01">
+               <div class="center">
+                <div class="lifeImage"></div>
+                <div class="lifeName"></div>
+             
+                <div class="lifeP1">볼륨 에디션</div>
+                <div class="lifeP2">라이프 프래그런스</div>
+                
+                
+                   <div class="more"><a href="#">More</a>
+                   
+                   </div>
+                   
+                   
+            </div>
+            </div>
+            
+            
+        </div>
+        
+         <div class="videoSpace">
+       <div class="youtube">
+       
+        <video muted autoplay controls loop width="500px" height="400px">
+        <source src="images/raraVideo.mp4" type="video/mp4" 
+        ></source> 
+        <!-- autoplay만 으로는 자동실행 안되어서 muted써줘야함 단점은 소리는 안나옴
+        type까지 써줘야 안정적 실행 가능 비디오/타입
+        -->
+    </video>
+      </div>
+       
+       
+        </div>       
+        <div class="bottom">
+        <div class="bCenter">
+        <h3># ROUND A'ROUND</h3>
+        <div class="center">
+        <div id="circleLogo"></div>
+        <div id="official"><a href="https://www.instagram.com/roundaround_official/">roundaround_official</a></div>
+        </div>
+        </div>
+        </div>
+        
+      
+        <div class="bxsliderSecond">
+            <div class="slider2_1"></div>
+            <div class="slider2_2"></div>
+            <div class="slider2_3"></div>
+            <div class="slider2_4"></div>
+            <div class="slider2_5"></div>
+            
+        </div>
+        
+        <footer>
+           
+           <div class="move">
+            <div class="bigLogo"></div>
+            
+                <ul>
+                    <li><b>개인정보처리방침</b></li>
+                    <li>이용약관</li>
+                    <li>법적고지</li>
+                </ul>
+            
+            <div class="info"> 씨제이올리브영 주식회사 &nbsp;&nbsp;&nbsp;&nbsp; 대표이사 : 구창근 &nbsp;&nbsp;&nbsp; 사업자등록 : 809-81-01574<br>
+                                고객센터 : 1522-0822 &nbsp;&nbsp;&nbsp;&nbsp; 주소:(04323) 서울특별시 용산구 한강대로 (동자동) 6층
+            </div>
+            <div class="copy">
+                Copyright &copy;2019 CJ OliveYoung All rights reserved.
+                
+            </div>
+            </div>
+        </footer>
+        
+        
+        
+        
+        
+        
+        
+        
+    </div>    
+</body>
+</html>
